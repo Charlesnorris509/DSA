@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a comprehensive guide to modern software engineering principles, focusing on data structures, algorithms, and system design. The guide is presented as a single-page web application with a clean and minimalist design, featuring both light and dark themes.
+This project is my study notes on modern software engineering principles, focusing on data structures, algorithms, and system design. The guide is presented as a single-page web application with a clean and minimalist design, featuring both light and dark themes.
 
 ## Features
 
