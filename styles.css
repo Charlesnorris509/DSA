@@ -1,17 +1,20 @@
 :root {
     /* Modern minimalist palette */
-    --primary-light: #f5f5f5;  /* Changed from white to soft grey */
-    --secondary-light: #ffffff;
+    --primary-light: #ffffff;
+    --secondary-light: #f8f9fa;  /* Lighter grey */
     --text-light: #2c2c2c;
     --accent-light: #4a90e2;
-    --bg-light: #f0f2f5;      /* New soft grey background */
+    --bg-light: #f5f5f5;      /* Light grey background */
+    --container-light: #ffffff;  /* White containers */
     
     /* Dark theme colors */
-    --primary-dark: #1a1a1a;
-    --secondary-dark: #2d1f3d;
-    --text-dark: #e2e2e2;
+    --primary-dark: #0a0a0a;    /* Near black */
+    --secondary-dark: #1a1a1a;  /* Slightly lighter black */
+    --text-dark: #ffffff;
     --accent-dark: #9d7fbd;
-    
+    --bg-dark: #000000;       /* Pure black background */
+    --container-dark: #1a1a1a;  /* Slightly lighter containers for dark mode */
+
     /* Typography */
     --font-main: 'Inter', -apple-system, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
@@ -35,6 +38,12 @@
     --text-secondary: #333333;
     --text-light-theme: #2c2c2c;
     --text-dark-theme: #e2e2e2;
+
+    /* Text colors for themes */
+    --text-primary-light: #000000;
+    --text-secondary-light: #333333;
+    --text-primary-dark: #ffffff;
+    --text-secondary-dark: #e2e2e2;
 }
 
 /* Theme Toggle Button */
@@ -45,6 +54,18 @@
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 var(--spacing-sm);
+}
+
+/* Adding specific styling for the nav-logo */
+.nav-logo {
+    color: var(--text-primary-light); /* Black text in light theme */
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Dark theme override for nav-logo */
+.dark-theme .nav-logo {
+    color: var(--text-primary-dark); /* White text in dark theme */
 }
 
 .theme-toggle {
@@ -72,13 +93,24 @@
     transform: rotate(360deg);
 }
 
+html, body {
+    height: 100%;
+    background-color: var(--bg-light); /* Ensure full background is light */
+}
+
+html {
+    background-color: var(--bg-light); /* Ensure full background is light */
+}
+
 body {
     font-family: var(--font-main);
     line-height: var(--line-height);
     background: var(--bg-light);
-    color: var(--text-light);
+    color: var(--text-primary-light);
     font-size: var(--base-size);
     transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    background-color: var(--bg-light); /* Ensure full background is light */
 }
 
 .nav {
@@ -106,7 +138,7 @@ body {
 }
 
 .nav-list a {
-    color: var(--color-surface);
+    color: var(--text-primary-light);
     text-decoration: none;
     transition: 0.3s ease;
     padding: 0.5rem 1rem;
@@ -120,15 +152,22 @@ body {
     opacity: 0.8;
 }
 
+/* Dark theme navbar links */
+.dark-theme .nav-list a {
+    color: var(--text-primary-dark);
+}
+
 .container {
     width: var(--content-width);
     margin: var(--space-lg) auto;
     padding: var(--space-md);
+    background: var(--container-light);
 }
 
 h1, h2, h3, h4 {
     margin: 0;
     line-height: 1.2;
+    color: var(--text-primary-light);
 }
 
 h1 {
@@ -142,7 +181,8 @@ h1 {
 h2 {
     font-size: var(--h2);
     margin-top: 30px;
-    border-bottom: 2px solid var(--color-secondary);
+    /* Removing the border-bottom that creates the underline effect */
+    /* border-bottom: 2px solid var(--color-secondary); */
     padding-bottom: var(--spacing-xs);
     font-weight: 700;
     margin-bottom: 2rem;
@@ -163,12 +203,12 @@ h4 {
 }
 
 .highlight {
-    background: var(--secondary-light);  /* Changed to pure white for contrast */
+    background: var(--container-light);
     border-radius: var(--radius-md);
     padding: var(--space-md);
     margin: var(--space-sm) 0;
     box-shadow: var(--shadow);
-    color: var(--text-primary);
+    color: var(--text-primary-light);
 }
 
 pre {
@@ -209,6 +249,7 @@ ul, ol {
 
 li {
     margin-bottom: 0.5rem;
+    color: var(--text-primary-light);
 }
 
 li + li {
@@ -238,7 +279,7 @@ p {
     font-size: var(--base-size);
     line-height: var(--line-height);
     margin-bottom: 1.5em;
-    color: var(--text-primary);
+    color: var(--text-primary-light);
     max-width: 70ch;
     font-weight: 400;
 }
@@ -246,14 +287,14 @@ p {
 /* Main content paragraphs */
 .container > p {
     font-size: calc(var(--base-size) * 1.1);
-    color: var(--text-primary);
+    color: var(--text-primary-light);
     margin-bottom: 2em;
 }
 
 /* Highlight paragraphs */
 .highlight p {
     font-size: calc(var(--base-size) * 0.95);
-    color: var(--text-primary);
+    color: var(--text-primary-light);
     margin-bottom: 1rem;
 }
 
@@ -261,25 +302,45 @@ p {
 li p {
     font-size: calc(var(--base-size) * 0.9);
     margin: 0.5em 0;
-    color: var(--text-primary);
+    color: var(--text-primary-light);
 }
 
 /* Special paragraphs */
 .subtitle {
     font-size: calc(var(--base-size) * 1.2);
-    color: var(--text-secondary);
+    color: var(--text-secondary-light);
     text-align: center;
     margin-bottom: var(--space-lg);
     font-weight: 500;
 }
 
 /* Dark theme overrides */
-.dark-theme p {
-    color: var(--text-dark-theme);
+.dark-theme {
+    background: var(--bg-dark);
+    color: var(--text-primary-dark);
+    background-color: var(--bg-dark); /* Ensure full background is dark */
+}
+
+.dark-theme html {
+    background-color: var(--bg-dark); /* Ensure full background is dark */
 }
 
 .dark-theme p {
-    color: var(--text-dark-theme);
+    color: var(--text-primary-dark);
+}
+
+.dark-theme .container,
+.dark-theme .highlight {
+    background: var(--container-dark);
+}
+
+.dark-theme .nav {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.dark-theme html, .dark-theme body {
+    background-color: var(--bg-dark); /* Ensure full background is dark */
 }
 
 .highlight p {
@@ -289,7 +350,7 @@ li p {
 
 .subtitle {
     text-align: center;
-    color: var(--text-secondary);
+    color: var(--text-secondary-light);
     font-size: calc(var(--base-size) * 1.2);
     margin-bottom: var(--space-lg);
 }
@@ -418,14 +479,31 @@ ul ul {
 
 /* Dark Theme Class */
 .dark-theme {
-    background: var(--primary-dark);
+    background: var(--bg-dark);
     color: var(--text-dark);
+}
+
+.dark-theme .container {
+    background: var(--container-dark);
 }
 
 .dark-theme .highlight {
     background: var(--secondary-dark);
     border-color: var(--border-dark);
-    color: var(--text-dark-theme);
+    color: var(--text-primary-dark);
+}
+
+.dark-theme p,
+.dark-theme li,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4 {
+    color: var(--text-primary-dark);
+}
+
+.dark-theme .subtitle {
+    color: var(--text-secondary-dark);
 }
 
 /* Base styles */
