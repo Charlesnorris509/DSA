@@ -179,27 +179,87 @@ h1 {
 }
 
 h2 {
-    font-size: var(--h2);
-    margin-top: 30px;
-    /* Removing the border-bottom that creates the underline effect */
-    /* border-bottom: 2px solid var(--color-secondary); */
-    padding-bottom: var(--spacing-xs);
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--link-light);
+    margin: 3rem 0 2rem;
+    text-align: center;
+    position: relative;
+    color: var(--text-primary-light);
+    padding-bottom: 0.9rem;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background-color: var(--accent-light);
+    border-radius: 3px;
+}
+
+.dark-theme h2 {
+    color: var(--text-primary-dark);
+}
+
+.dark-theme h2::after {
+    background-color: var(--accent-dark);
 }
 
 h3 {
-    font-size: var(--h3);
-    margin-top: 20px;
+    font-size: 1.8rem;
     font-weight: 600;
-    margin: 2rem 0 1rem;
+    margin: 2.5rem 0 1.5rem;
+    text-align: center;
+    position: relative;
+    color: var(--text-primary-light);
+    padding-bottom: 0.75rem;
+}
+
+h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-light);
+    border-radius: 2px;
+}
+
+.dark-theme h3 {
+    color: var(--text-primary-dark);
+}
+
+.dark-theme h3::after {
+    background-color: var(--accent-dark);
 }
 
 h4 {
-    font-size: var(--h4);
+    font-size: 1.3rem;
     font-weight: 600;
-    margin: 1.5rem 0 1rem;
+    margin: 1.75rem 0 1.25rem;
+    position: relative;
+    padding-left: 0.9rem;
+    color: var(--text-primary-light);
+}
+
+h4::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    width: 4px;
+    background-color: var(--accent-light);
+    border-radius: 2px;
+}
+
+.dark-theme h4 {
+    color: var(--text-primary-dark);
 }
 
 .highlight {
@@ -545,4 +605,320 @@ body {
 .shown {
     transition: var(--easing);
     color: var(--sub);
+}
+
+.data-structure-card {
+    background: var(--container-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    margin: 1rem 0;
+    border-left: 3px solid var(--accent-light);
+}
+
+.dark-theme .data-structure-card {
+    background: var(--secondary-dark);
+    border-left-color: var(--accent-dark);
+}
+
+.ds-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary-light);
+}
+
+.dark-theme .ds-title {
+    color: var(--text-primary-dark);
+}
+
+.ds-description {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary-light);
+}
+
+.dark-theme .ds-description {
+    color: var(--text-secondary-dark);
+}
+
+.feature-list {
+    margin-top: 0.75rem;
+    padding-left: 1.5rem;
+}
+
+.feature-list li {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    list-style-type: square;
+}
+
+.section-divider {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin: 1.5rem 0;
+}
+
+.dark-theme .section-divider {
+    border-top-color: rgba(255,255,255,0.1);
+}
+
+.feature-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Mobile Navigation Menu */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-primary-light);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.dark-theme .mobile-menu-toggle {
+    color: var(--text-primary-dark);
+}
+
+/* Responsive Design - Tablet (768px to 1024px) */
+@media screen and (max-width: 1024px) {
+    :root {
+        --base-size: 0.95rem;
+    }
+
+    .container {
+        width: 95%;
+        padding: var(--space-sm);
+    }
+    
+    .feature-group {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.6rem;
+    }
+    
+    /* Adjust navigation for tablets */
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-list {
+        gap: 0.5rem;
+    }
+    
+    .nav-list li {
+        margin: 0 0.5rem;
+    }
+    
+    /* Adjust card spacing for tablets */
+    .data-structure-card {
+        padding: 1rem;
+    }
+    
+    h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive Design - Mobile (up to 767px) */
+@media screen and (max-width: 767px) {
+    :root {
+        --base-size: 0.9rem;
+        --space-sm: 0.75rem;
+        --space-md: 1.5rem;
+    }
+    
+    /* Mobile Navigation */
+    .nav-container {
+        flex-wrap: wrap;
+        position: relative;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .nav-list.active {
+        max-height: 300px;
+    }
+    
+    .nav-list li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-list a {
+        display: block;
+        padding: 0.75rem;
+    }
+    
+    /* Adjust layout for mobile */
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+        margin: 2rem 0 1.2rem;
+    }
+    
+    h3::after {
+        width: 60px;
+    }
+    
+    h4 {
+        font-size: 1.15rem;
+        margin: 1.5rem 0 1rem;
+    }
+    
+    /* Adjust card layout for mobile */
+    .feature-group {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .data-structure-card {
+        padding: 0.75rem;
+        margin: 0.75rem 0;
+    }
+    
+    .ds-title {
+        font-size: 1rem;
+    }
+    
+    .ds-description {
+        font-size: 0.9rem;
+    }
+    
+    .feature-list li {
+        font-size: 0.85rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    /* Adjust container spacing */
+    .container {
+        margin-top: 1.5rem;
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .highlight {
+        padding: 1rem;
+        margin: 0.75rem 0;
+    }
+    
+    /* Improve readability on small screens */
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    ul, ol {
+        padding-left: 1rem;
+        margin-left: 0.5rem;
+    }
+}
+
+/* Small Mobile Screens (up to 480px) */
+@media screen and (max-width: 480px) {
+    :root {
+        --base-size: 0.85rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    h4 {
+        font-size: 1.05rem;
+    }
+    
+    .nav-logo {
+        font-size: 1.1rem;
+    }
+    
+    .container {
+        padding: 0.75rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Improved Theme Toggle Button for Mobile */
+@media screen and (max-width: 767px) {
+    .theme-toggle {
+        position: absolute;
+        right: 3.5rem;
+        top: 1rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+    }
+    
+    .nav-logo {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Fix for nav container */
+@media screen and (max-width: 767px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+}
+
+/* Dark theme specific adjustments for mobile */
+@media screen and (max-width: 767px) {
+    .dark-theme .nav {
+        background: rgba(0, 0, 0, 0.9);
+    }
+    
+    .dark-theme .data-structure-card {
+        border-left-width: 2px;
+    }
 }
