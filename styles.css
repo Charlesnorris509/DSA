@@ -922,3 +922,57 @@ body {
         border-left-width: 2px;
     }
 }
+
+/* Image styling for algorithm visualizations */
+.image-container {
+    margin: 1.5rem 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.dark-theme .image-container {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.algorithm-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.image-caption {
+    background: var(--secondary-light);
+    color: var(--text-primary-light);
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark-theme .image-caption {
+    background: var(--secondary-dark);
+    color: var(--text-primary-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive design for images */
+@media screen and (min-width: 768px) {
+    .image-container {
+        max-width: 80%;
+        margin: 1.5rem auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .image-container {
+        margin: 1.25rem 0;
+    }
+    
+    .image-caption {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+}
