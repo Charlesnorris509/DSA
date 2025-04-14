@@ -1928,406 +1928,235 @@ console.log("Recursive BFS:", recursiveBFS(graph, 'A'));
             <section id="system-design">
                 <h2>Modern System Design Principles</h2>
 
-                <h3>Scalability Patterns</h3>
+                <h3>Non-Functional Requirements</h3>
                 <div class="highlight">
-                    <h4>Scaling Strategies</h4>
+                    <p>Non-functional requirements define the quality attributes of a system that affect how well it performs its functions rather than what specific functions it performs.</p>
                     
                     <div class="data-structure-card">
-                        <div class="ds-title">Horizontal Scaling</div>
-                        <p class="ds-description">Adding more machines to the resource pool to distribute load across multiple servers, increasing system capacity and resilience.</p>
+                        <div class="ds-title">Scalability</div>
+                        <p class="ds-description">The capability of a system to handle growing amounts of work by adding resources to the system.</p>
                         
                         <div class="feature-group">
                             <div>
-                                <strong>Key Features:</strong>
+                                <strong>Key Aspects:</strong>
                                 <ul class="feature-list">
-                                    <li>Linear capacity increase with additional nodes</li>
-                                    <li>Improved fault tolerance through redundancy</li>
-                                    <li>Typically requires distributed architecture</li>
+                                    <li>Vertical Scaling (Scale Up): Adding more power to existing machines</li>
+                                    <li>Horizontal Scaling (Scale Out): Adding more machines to your resource pool</li>
+                                    <li>Auto-scaling: Dynamically adjusting resources based on demand</li>
+                                    <li>Load distribution: Efficiently balancing workload across resources</li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <strong>Applications:</strong>
+                                <strong>Measurement:</strong>
                                 <ul class="feature-list">
-                                    <li>Web servers and application servers</li>
-                                    <li>Distributed databases</li>
-                                    <li>Cloud-native applications</li>
-                                    <li>High-traffic services</li>
+                                    <li>Requests per second (RPS) under increasing load</li>
+                                    <li>Throughput: volume of data/transactions processed</li>
+                                    <li>Response time stability at scale</li>
+                                    <li>Resource utilization efficiency</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Design Considerations:</strong>
+                                <ul class="feature-list">
+                                    <li>Stateless design for horizontal scaling</li>
+                                    <li>Data partitioning and sharding strategies</li>
+                                    <li>Caching hierarchies for read scaling</li>
+                                    <li>Asynchronous processing for workload decoupling</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
                     <div class="data-structure-card">
-                        <div class="ds-title">Vertical Scaling</div>
-                        <p class="ds-description">Upgrading existing hardware resources by adding more CPU, memory, or storage to increase the capacity of individual servers.</p>
+                        <div class="ds-title">Availability</div>
+                        <p class="ds-description">The proportion of time that a system is in a functioning condition, often measured as a percentage of uptime in a given period.</p>
                         
                         <div class="feature-group">
                             <div>
-                                <strong>Key Features:</strong>
+                                <strong>Measurement:</strong>
                                 <ul class="feature-list">
-                                    <li>Simpler implementation than horizontal scaling</li>
-                                    <li>No data distribution complexity</li>
-                                    <li>Limited by maximum hardware capabilities</li>
+                                    <li><strong>99.9% (Three nines)</strong>: 8.76 hours/year downtime</li>
+                                    <li><strong>99.99% (Four nines)</strong>: 52.56 minutes/year downtime</li>
+                                    <li><strong>99.999% (Five nines)</strong>: 5.26 minutes/year downtime</li>
+                                    <li><strong>99.9999% (Six nines)</strong>: 31.5 seconds/year downtime</li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <strong>Best Used For:</strong>
+                                <strong>Strategies:</strong>
                                 <ul class="feature-list">
-                                    <li>Applications with monolithic architecture</li>
-                                    <li>Systems with shared resources</li>
-                                    <li>Databases with complex transactions</li>
-                                    <li>When simplicity is prioritized</li>
+                                    <li>Redundancy: Multiple instances of critical components</li>
+                                    <li>Failover mechanisms: Automatic recovery from component failure</li>
+                                    <li>Fault isolation: Containing failures to minimize impact</li>
+                                    <li>Geographic distribution: Multiple data centers/regions</li>
+                                    <li>Chaos engineering: Systematically testing resilience</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Industry Examples:</strong>
+                                <ul class="feature-list">
+                                    <li>Netflix Chaos Monkey: Deliberately terminates instances to test resilience</li>
+                                    <li>Amazon Route 53: Offers 100% availability SLA using multi-region redundancy</li>
+                                    <li>Google Cloud Spanner: Provides 99.999% availability with multi-region deployment</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
                     <div class="data-structure-card">
-                        <div class="ds-title">Load Balancing</div>
-                        <p class="ds-description">Distributing network traffic across multiple servers to ensure optimal resource utilization, maximize throughput, and minimize response time.</p>
+                        <div class="ds-title">Reliability</div>
+                        <p class="ds-description">The ability of a system to consistently perform its intended function correctly and deliver expected results over time.</p>
                         
                         <div class="feature-group">
                             <div>
-                                <strong>Load Balancing Algorithms:</strong>
+                                <strong>Key Aspects:</strong>
                                 <ul class="feature-list">
-                                    <li>Round Robin: Sequential distribution</li>
-                                    <li>Least Connections: Routes to server with fewest active connections</li>
-                                    <li>IP Hash: Maps client IP to specific server</li>
-                                    <li>Weighted algorithms for heterogeneous environments</li>
+                                    <li>Mean Time Between Failures (MTBF)</li>
+                                    <li>Mean Time To Recovery (MTTR)</li>
+                                    <li>Error rates and failure frequency</li>
+                                    <li>Data integrity and consistency</li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <strong>Benefits:</strong>
+                                <strong>Design Principles:</strong>
                                 <ul class="feature-list">
-                                    <li>Improved availability and reliability</li>
-                                    <li>Efficient resource utilization</li>
-                                    <li>Simplified scaling operations</li>
-                                    <li>Enables zero-downtime maintenance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Microservices Architecture</h3>
-                <div class="highlight">
-                    <h4>Service Design Patterns</h4>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Microservices Architecture</div>
-                        <p class="ds-description">Architectural approach that structures an application as a collection of loosely coupled, independently deployable services organized around business capabilities.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Key Features:</strong>
-                                <ul class="feature-list">
-                                    <li>Service independence and autonomous teams</li>
-                                    <li>Domain-driven design principles</li>
-                                    <li>Polyglot persistence and programming</li>
-                                    <li>API-based communication</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Benefits:</strong>
-                                <ul class="feature-list">
-                                    <li>Improved maintainability and deployment flexibility</li>
-                                    <li>Better fault isolation and resilience</li>
-                                    <li>Independent scaling of components</li>
-                                    <li>Enables continuous delivery/deployment</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Challenges:</strong>
-                                <ul class="feature-list">
-                                    <li>Distributed system complexity</li>
-                                    <li>Service discovery and orchestration</li>
-                                    <li>Data consistency across services</li>
-                                    <li>Testing and debugging complexity</li>
+                                    <li>Circuit breakers: Preventing cascading failures</li>
+                                    <li>Retry mechanisms with exponential backoff</li>
+                                    <li>Bulkheads: Isolating components to contain failures</li>
+                                    <li>Timeouts: Avoiding resource exhaustion</li>
+                                    <li>Idempotency: Safe operation repetition</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
                     <div class="data-structure-card">
-                        <div class="ds-title">Communication Patterns</div>
-                        <p class="ds-description">Strategies for communication between services in a distributed architecture.</p>
+                        <div class="ds-title">Performance</div>
+                        <p class="ds-description">Indicators of how quickly a system responds to inputs and processes data under various conditions.</p>
                         
                         <div class="feature-group">
                             <div>
-                                <strong>Synchronous Patterns:</strong>
+                                <strong>Key Metrics:</strong>
                                 <ul class="feature-list">
-                                    <li>REST (Representational State Transfer)</li>
-                                    <li>GraphQL for flexible queries</li>
-                                    <li>gRPC for high-performance communication</li>
-                                    <li>Request-Response model</li>
+                                    <li><strong>Latency</strong>: Time taken to respond to a request</li>
+                                    <li><strong>Throughput</strong>: Number of operations processed per unit of time</li>
+                                    <li><strong>Response Time</strong>: Total time from request to complete response</li>
+                                    <li><strong>Processing Time</strong>: Time taken to process a transaction</li>
+                                    <li><strong>Resource Utilization</strong>: CPU, memory, disk, network usage percentages</li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <strong>Asynchronous Patterns:</strong>
+                                <strong>Optimization Techniques:</strong>
                                 <ul class="feature-list">
-                                    <li>Message Queues (RabbitMQ, ActiveMQ)</li>
-                                    <li>Event Streaming (Kafka, Kinesis)</li>
-                                    <li>Publish-Subscribe model</li>
-                                    <li>Event-Driven Architecture (EDA)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Data Management</h3>
-                <div class="highlight">
-                    <h4>Data Storage and Access</h4>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Caching Strategies</div>
-                        <p class="ds-description">Techniques for storing copies of data in high-speed storage layers to improve read performance and reduce database load.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Caching Patterns:</strong>
-                                <ul class="feature-list">
-                                    <li>Cache-Aside: Application manages cache interaction</li>
-                                    <li>Read-Through: Cache manages fetching from database</li>
-                                    <li>Write-Through: Data written to cache and DB simultaneously</li>
-                                    <li>Write-Behind: Data written to cache, asynchronously to DB</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Technologies:</strong>
-                                <ul class="feature-list">
-                                    <li>Redis: In-memory data structure store</li>
-                                    <li>Memcached: Distributed memory caching</li>
-                                    <li>CDN: For static content distribution</li>
-                                    <li>Browser Caching: For client-side performance</li>
+                                    <li>Caching: Storing frequently accessed data in fast access storage</li>
+                                    <li>Connection pooling: Reusing expensive database connections</li>
+                                    <li>Content Delivery Networks (CDNs): Distributing content geographically closer to users</li>
+                                    <li>Data indexing: Optimizing data retrieval operations</li>
+                                    <li>Lazy loading: Deferring initialization of resources until needed</li>
+                                    <li>Asynchronous processing: Non-blocking operations for better resource utilization</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
                     <div class="data-structure-card">
-                        <div class="ds-title">Database Sharding</div>
-                        <p class="ds-description">Horizontal partitioning technique that splits a database into smaller, more manageable pieces called shards, each hosting a subset of the data.</p>
+                        <div class="ds-title">Security</div>
+                        <p class="ds-description">Protection of system components and data from unauthorized access and potential threats.</p>
                         
                         <div class="feature-group">
                             <div>
-                                <strong>Sharding Strategies:</strong>
+                                <strong>Security Principles:</strong>
                                 <ul class="feature-list">
-                                    <li>Range-based: Partitioning by data ranges</li>
-                                    <li>Hash-based: Using hash function to distribute data</li>
-                                    <li>Directory-based: Lookup table for shard mapping</li>
-                                    <li>Geography-based: Data locality by region</li>
+                                    <li><strong>CIA Triad</strong>: Confidentiality, Integrity, Availability</li>
+                                    <li><strong>Defense in Depth</strong>: Multiple layers of security controls</li>
+                                    <li><strong>Principle of Least Privilege</strong>: Minimum necessary permissions</li>
+                                    <li><strong>Zero Trust</strong>: Never trust, always verify</li>
+                                    <li><strong>Secure by Design</strong>: Security built-in, not added on</li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <strong>Considerations:</strong>
+                                <strong>Common Security Measures:</strong>
                                 <ul class="feature-list">
-                                    <li>Rebalancing strategies</li>
-                                    <li>Cross-shard operations complexity</li>
-                                    <li>Shard key selection</li>
-                                    <li>Schema and index management</li>
+                                    <li>Authentication and authorization frameworks</li>
+                                    <li>Data encryption (in transit and at rest)</li>
+                                    <li>API security (rate limiting, input validation)</li>
+                                    <li>Regular security audits and penetration testing</li>
+                                    <li>Intrusion detection and prevention systems</li>
+                                    <li>Compliance with industry standards (GDPR, HIPAA, PCI DSS)</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
                     <div class="data-structure-card">
-                        <div class="ds-title">CAP Theorem</div>
-                        <p class="ds-description">Theoretical principle stating that a distributed data store can provide at most two out of three guarantees: Consistency, Availability, and Partition tolerance.</p>
+                        <div class="ds-title">Maintainability</div>
+                        <p class="ds-description">The ease with which a system can be modified, enhanced, or debugged to correct faults, improve performance, or adapt to a changed environment.</p>
                         
                         <div class="feature-group">
                             <div>
-                                <strong>Guarantees:</strong>
+                                <strong>Key Aspects:</strong>
                                 <ul class="feature-list">
-                                    <li><strong>Consistency:</strong> All nodes see the same data at the same time</li>
-                                    <li><strong>Availability:</strong> Every request receives a response</li>
-                                    <li><strong>Partition Tolerance:</strong> System continues operating despite network failures</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Database Classifications:</strong>
-                                <ul class="feature-list">
-                                    <li>CP Systems: MongoDB, HBase, Redis</li>
-                                    <li>AP Systems: Cassandra, CouchDB, DynamoDB</li>
-                                    <li>CA Systems: Traditional RDBMS (MySQL, PostgreSQL)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Message Queue Systems</h3>
-                <div class="highlight">
-                    <h4>Event Streaming and Processing</h4>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Apache Kafka</div>
-                        <p class="ds-description">Distributed event streaming platform for high-throughput, fault-tolerant, publish-subscribe messaging system with durable storage.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Core Concepts:</strong>
-                                <ul class="feature-list">
-                                    <li>Topics: Categories for message organization</li>
-                                    <li>Partitions: Distributed storage units for scaling</li>
-                                    <li>Consumer Groups: Logical grouping of consumers</li>
-                                    <li>Brokers: Servers that store and serve data</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Key Features:</strong>
-                                <ul class="feature-list">
-                                    <li>High throughput and low latency</li>
-                                    <li>Durability and fault tolerance</li>
-                                    <li>Horizontal scalability</li>
-                                    <li>Stream processing capabilities</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Use Cases:</strong>
-                                <ul class="feature-list">
-                                    <li>Log aggregation</li>
-                                    <li>Event sourcing</li>
-                                    <li>Stream processing</li>
-                                    <li>Real-time analytics</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Redis for Messaging</div>
-                        <p class="ds-description">In-memory data structure store that can be used as a message broker, database, cache, and streaming engine.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Data Structures:</strong>
-                                <ul class="feature-list">
-                                    <li>Strings, Lists, Sets, Sorted Sets, Hashes</li>
-                                    <li>HyperLogLog for approximate counting</li>
-                                    <li>Streams for log-like data structure</li>
-                                    <li>Geospatial indexes</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Features:</strong>
-                                <ul class="feature-list">
-                                    <li>Pub/Sub messaging pattern</li>
-                                    <li>Stream processing with consumer groups</li>
-                                    <li>Lua scripting for complex operations</li>
-                                    <li>Persistence options (RDB snapshots, AOF logs)</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Use Cases:</strong>
-                                <ul class="feature-list">
-                                    <li>Session management</li>
-                                    <li>Real-time analytics</li>
-                                    <li>Leaderboards and counting</li>
-                                    <li>Rate limiting and job queues</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Security Considerations</h3>
-                <div class="highlight">
-                    <h4>System Security Fundamentals</h4>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Authentication and Authorization</div>
-                        <p class="ds-description">Security mechanisms for verifying identity and managing access rights within a system.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Authentication Methods:</strong>
-                                <ul class="feature-list">
-                                    <li>Token-based (JWT, OAuth)</li>
-                                    <li>Multi-factor authentication (MFA)</li>
-                                    <li>SSO (Single Sign-On)</li>
-                                    <li>Biometric verification</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Authorization Strategies:</strong>
-                                <ul class="feature-list">
-                                    <li>Role-Based Access Control (RBAC)</li>
-                                    <li>Attribute-Based Access Control (ABAC)</li>
-                                    <li>Policy-Based Access Control</li>
-                                    <li>Access Control Lists (ACL)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Data Security</div>
-                        <p class="ds-description">Measures and techniques to protect data from unauthorized access, corruption, or theft.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Encryption Types:</strong>
-                                <ul class="feature-list">
-                                    <li>Data at Rest: Disk and database encryption</li>
-                                    <li>Data in Transit: TLS/SSL, HTTPS</li>
-                                    <li>End-to-End Encryption</li>
-                                    <li>Field-level Encryption</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Security Practices:</strong>
-                                <ul class="feature-list">
-                                    <li>Data masking and anonymization</li>
-                                    <li>Secure key management</li>
-                                    <li>Regular security audits</li>
-                                    <li>Data loss prevention (DLP)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">API Security</div>
-                        <p class="ds-description">Protective measures for securing APIs against attacks and unauthorized access.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Security Controls:</strong>
-                                <ul class="feature-list">
-                                    <li>Rate limiting and throttling</li>
-                                    <li>API gateway protection</li>
-                                    <li>Input validation and sanitization</li>
-                                    <li>DDoS protection mechanisms</li>
+                                    <li><strong>Modularity</strong>: Independent, replaceable components</li>
+                                    <li><strong>Code quality</strong>: Readability, consistency, conventions</li>
+                                    <li><strong>Technical debt management</strong>: Regular refactoring</li>
+                                    <li><strong>Documentation</strong>: Clear architecture and API docs</li>
+                                    <li><strong>Testability</strong>: Automated testing capabilities</li>
                                 </ul>
                             </div>
                             
                             <div>
                                 <strong>Best Practices:</strong>
                                 <ul class="feature-list">
-                                    <li>OAuth 2.0 and OpenID Connect</li>
-                                    <li>API keys and client credentials</li>
-                                    <li>CORS policies</li>
-                                    <li>Least privilege principle</li>
+                                    <li>Continuous Integration/Continuous Deployment (CI/CD)</li>
+                                    <li>Infrastructure as Code (IaC)</li>
+                                    <li>Observability (logging, monitoring, tracing)</li>
+                                    <li>Consistent coding standards and peer reviews</li>
+                                    <li>Feature flags for controlled rollouts</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section id="methodology">
+                <h2>Research Methodology</h2>
+
+                <h3>Research Design</h3>
+                <div class="highlight">
+                    <p>This study will use a mixed-method approach, combining qualitative and quantitative research methods to gather comprehensive data on the effectiveness of AI in software engineering education.</p>
+                </div>
+
+                <h3>Data Collection</h3>
+                <div class="highlight">
+                    <p>Data will be collected through surveys, interviews, and analysis of existing literature and resources on AI and software engineering.</p>
+                </div>
+
+                <h3>Data Analysis</h3>
+                <div class="highlight">
+                    <p>Quantitative data will be analyzed using statistical methods, while qualitative data will be analyzed using thematic analysis to identify common themes and patterns.</p>
+                </div>
+
+                <h3>Expected Outcomes</h3>
+                <div class="highlight">
+                    <p>The research is expected to provide insights into the current state of AI in software engineering education, its effectiveness, and areas for improvement.</p>
+                </div>
+            </section>
+
+            <section id="conclusion">
+                <h2>Conclusion</h2>
+                <div class="highlight">
+                    <p>AI has the potential to significantly enhance the field of software engineering, particularly in the areas of system design, prompt engineering, and effectiveness analysis. By leveraging AI tools and techniques, software engineers can improve their productivity, the quality of their software, and their ability to solve complex problems.</p>
+                    
+                    <p>However, the integration of AI in software engineering also presents challenges and risks that need to be carefully managed. It is essential to ensure that AI systems are transparent, explainable, and aligned with human values and ethics.</p>
+                    
+                    <p>Further research and collaboration between AI experts and software engineers are crucial to fully realize the benefits of AI in software engineering and to address the associated challenges and risks.</p>
                 </div>
             </section>
         </div>
