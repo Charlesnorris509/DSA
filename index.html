@@ -50,9 +50,9 @@
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">DSA Guide</div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul class="nav-list" id="nav-list">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">☰</button>            <ul class="nav-list" id="nav-list">
                 <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#essential-notions">Essential Notions</a></li>
                 <li><a href="#data-structures">Data Structures</a></li>
                 <li><a href="#programming-techniques">Programming Techniques</a></li>
                 <li><a href="#system-design">System Design</a></li>
@@ -69,9 +69,203 @@
         <header class="page-header">
             <h1>Modern Software Engineering Guide</h1>
             <p class="subtitle">Data Structures, Algorithms, and System Design</p>
-        </header>
+        </header>        <div class="content-grid">
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <div class="highlight">
+                    <p>Welcome to the Modern Software Engineering Guide. This comprehensive resource is designed to help software engineers, developers, and computer science students understand and apply fundamental concepts in data structures, algorithms, and system design.</p>
+                    
+                    <p>In today's rapidly evolving technology landscape, a strong foundation in these core concepts is essential for building efficient, scalable, and maintainable software systems. Whether you're preparing for technical interviews, working on complex software projects, or simply expanding your knowledge, this guide provides structured insights into the building blocks of modern software engineering.</p>
+                    
+                    <p>Throughout this guide, we'll explore various data structures, algorithmic patterns, and system design principles with practical examples and visualizations to enhance understanding. Let's embark on this journey to strengthen your software engineering fundamentals.</p>
+                </div>
+            </section>
 
-        <div class="content-grid">
+            <section id="essential-notions">
+                <h2>Essential Notions</h2>
+
+                <h3>Complexity Analysis</h3>
+                <div class="highlight">
+                    <h4>Big O Notation</h4>
+                    <p>A mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or infinity:</p>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Time Complexity</div>
+                        <p class="ds-description">Measures the amount of computational time required by an algorithm to run as a function of the input size.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Common Time Complexities:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>O(1)</strong> - Constant Time: Execution time remains the same regardless of input size</li>
+                                    <li><strong>O(log n)</strong> - Logarithmic Time: Execution time grows logarithmically with input size</li>
+                                    <li><strong>O(n)</strong> - Linear Time: Execution time grows linearly with input size</li>
+                                    <li><strong>O(n log n)</strong> - Linearithmic Time: Common in efficient sorting algorithms</li>
+                                    <li><strong>O(n²)</strong> - Quadratic Time: Execution time grows quadratically with input size</li>
+                                    <li><strong>O(2ⁿ)</strong> - Exponential Time: Execution time doubles with each addition to the input</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Analysis Guidelines:</strong>
+                                <ul class="feature-list">
+                                    <li>Focus on worst-case scenario when analyzing algorithms</li>
+                                    <li>Drop constants and lower-order terms</li>
+                                    <li>Consider the dominant operations in nested loops</li>
+                                    <li>Different inputs may need separate variables (e.g., O(n+m))</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Space Complexity</div>
+                        <p class="ds-description">Measures the amount of memory space required by an algorithm as a function of the input size.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Considerations:</strong>
+                                <ul class="feature-list">
+                                    <li>Auxiliary space: Extra space used by the algorithm (excluding input)</li>
+                                    <li>Input space: Space used to store the input</li>
+                                    <li>Total space: Sum of auxiliary and input space</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Common Space Optimizations:</strong>
+                                <ul class="feature-list">
+                                    <li>In-place algorithms: Modify input directly with O(1) extra space</li>
+                                    <li>Tail recursion: Optimizing recursive calls to avoid stack growth</li>
+                                    <li>Iterative over recursive implementations when possible</li>
+                                    <li>Memory pooling and object reuse for repeated operations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Algorithm Analysis Framework</h3>
+                <div class="highlight">
+                    <h4>Evaluating Algorithm Efficiency</h4>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Trade-offs in Algorithm Design</div>
+                        <p class="ds-description">Understanding the balance between competing factors when designing algorithms:</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Common Trade-offs:</strong>
+                                <ul class="feature-list">
+                                    <li>Time vs. Space complexity</li>
+                                    <li>Preprocessing time vs. Query time</li>
+                                    <li>Average-case vs. Worst-case performance</li>
+                                    <li>Simplicity vs. Efficiency</li>
+                                    <li>Generality vs. Customization</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Decision Factors:</strong>
+                                <ul class="feature-list">
+                                    <li>Input size and constraints</li>
+                                    <li>Access patterns (random vs. sequential)</li>
+                                    <li>Hardware limitations</li>
+                                    <li>Frequency of operations</li>
+                                    <li>Scalability requirements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Amortized Analysis</div>
+                        <p class="ds-description">A method of analyzing algorithms that considers the average performance of operations over a sequence of operations, even when some operations might be occasionally expensive.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Analysis Methods:</strong>
+                                <ul class="feature-list">
+                                    <li>Aggregate method: Total cost averaged over operations</li>
+                                    <li>Accounting method: Assign different costs to different operations</li>
+                                    <li>Potential method: Uses a potential function to track data structure state</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Applications:</strong>
+                                <ul class="feature-list">
+                                    <li>Dynamic arrays with resizing operations</li>
+                                    <li>Balanced trees with rebalancing operations</li>
+                                    <li>Hash tables with rehashing operations</li>
+                                    <li>Disjoint-set data structure operations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Problem-Solving Approaches</h3>
+                <div class="highlight">
+                    <h4>Methodical Problem-Solving</h4>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Problem Decomposition</div>
+                        <p class="ds-description">Breaking complex problems into smaller, manageable sub-problems that can be solved independently.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Techniques:</strong>
+                                <ul class="feature-list">
+                                    <li>Top-down decomposition</li>
+                                    <li>Bottom-up synthesis</li>
+                                    <li>Divide and conquer approach</li>
+                                    <li>Identifying independent components</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Benefits:</strong>
+                                <ul class="feature-list">
+                                    <li>Reduces problem complexity</li>
+                                    <li>Enables parallel problem-solving</li>
+                                    <li>Facilitates reuse of solutions</li>
+                                    <li>Improves code organization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Pattern Recognition</div>
+                        <p class="ds-description">Identifying common patterns in problems that can be solved using established techniques or algorithms.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Common Patterns:</strong>
+                                <ul class="feature-list">
+                                    <li>Sliding window problems</li>
+                                    <li>Two-pointer techniques</li>
+                                    <li>Graph traversal patterns</li>
+                                    <li>Dynamic programming substructures</li>
+                                    <li>Divide and conquer approaches</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Pattern Application Process:</strong>
+                                <ul class="feature-list">
+                                    <li>Recognize problem characteristics</li>
+                                    <li>Match to known patterns</li>
+                                    <li>Adapt pattern solution to specific problem</li>
+                                    <li>Verify correctness with test cases</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section id="data-structures">
                 <h2>Common Data Structures in Modern Development</h2>
 
@@ -121,8 +315,7 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="data-structure-card">
+                      <div class="data-structure-card">
                         <div class="ds-title">Dynamic Arrays (ArrayList)</div>
                         <p class="ds-description">Random access, variable-size list that automatically grows when inserting elements when there's no space left for new items.</p>
                         
@@ -142,46 +335,6 @@
                                     <li>Dynamic collections</li>
                                     <li>Buffer management</li>
                                     <li>When size requirements are unknown</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Linked Lists</div>
-                        <p class="ds-description">Linear data structure that stores elements in nodes which are not stored in consecutive memory locations. Each node contains its data and a reference to the next node in the sequence, allowing for dynamic memory allocation.</p>
-                        
-                        <!-- Add LinkedListCycle image for the Linked Lists section -->
-                        <div class="image-container">
-                            <img src="Public/LinkedListCycle.png" alt="Linked List Cycle Detection" class="algorithm-image">
-                            <p class="image-caption">Floyd's Cycle Detection Algorithm: Fast and slow pointers to detect cycles in linked lists</p>
-                        </div>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Key Features:</strong>
-                                <ul class="feature-list">
-                                    <li>O(1) time for insertion at the beginning</li>
-                                    <li>O(n) time for accessing elements by index</li>
-                                    <li>Dynamic size without reallocation</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Common Algorithms:</strong>
-                                <ul class="feature-list">
-                                    <li>Fast and Slow Pointers (Floyd's Cycle Detection)</li>
-                                    <li>Dummy Node Technique</li>
-                                    <li>Reversal algorithms</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Use Cases:</strong>
-                                <ul class="feature-list">
-                                    <li>Implementation of stacks and queues</li>
-                                    <li>Circular buffers</li>
-                                    <li>Hash tables (chaining)</li>
                                 </ul>
                             </div>
                         </div>
@@ -272,18 +425,211 @@
                                     <li>Huffman coding</li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
+                        </div>                    </div>
                 </div>
 
-                <h3>Hash-Based Structures</h3>
+                <h3>Linked Lists</h3>
                 <div class="highlight">
+                    <h4>Linked List Structures</h4>
+                    <p>Sequential access data structures with non-contiguous memory allocation:</p>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Linked Lists</div>
+                        <p class="ds-description">Linear data structure that stores elements in nodes which are not stored in consecutive memory locations. Each node contains its data and a reference to the next node in the sequence, allowing for dynamic memory allocation.</p>
+                        
+                        <!-- Add LinkedListCycle image for the Linked Lists section -->
+                        <div class="image-container">
+                            <img src="Public/LinkedListCycle.png" alt="Linked List Cycle Detection" class="algorithm-image">
+                            <p class="image-caption">Floyd's Cycle Detection Algorithm: Fast and slow pointers to detect cycles in linked lists</p>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Key Features:</strong>
+                                <ul class="feature-list">
+                                    <li>O(1) time for insertion at the beginning</li>
+                                    <li>O(n) time for accessing elements by index</li>
+                                    <li>Dynamic size without reallocation</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Common Algorithms:</strong>
+                                <ul class="feature-list">
+                                    <li>Fast and Slow Pointers (Floyd's Cycle Detection)</li>
+                                    <li>Dummy Node Technique</li>
+                                    <li>Reversal algorithms</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Use Cases:</strong>
+                                <ul class="feature-list">
+                                    <li>Implementation of stacks and queues</li>
+                                    <li>Circular buffers</li>
+                                    <li>Hash tables (chaining)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Doubly Linked Lists</div>
+                        <p class="ds-description">An extension of linked lists where each node contains references to both the next and previous nodes, enabling bidirectional traversal.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Key Features:</strong>
+                                <ul class="feature-list">
+                                    <li>O(1) insertion and deletion at both ends</li>
+                                    <li>Bidirectional traversal capability</li>
+                                    <li>Higher memory overhead than singly linked lists</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Use Cases:</strong>
+                                <ul class="feature-list">
+                                    <li>Navigation systems (forward/backward)</li>
+                                    <li>LRU cache implementation</li>
+                                    <li>Text editors for undo/redo functionality</li>
+                                    <li>Browser history implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>                <h3>Hash-Based Structures</h3>
+                <div class="highlight">
+                    <h4>Fundamentals of Hashing</h4>
+                    <p>Hashing transforms input data of arbitrary size into fixed-size values, enabling efficient storage and retrieval:</p>
+
+                    <div class="data-structure-card">
+                        <div class="ds-title">Hash Functions</div>
+                        <p class="ds-description">Mathematical algorithms that map data of arbitrary size to fixed-size values, ideally distributing keys uniformly across the hash table to minimize collisions.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Properties of Good Hash Functions:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Deterministic:</strong> Same input always produces the same output</li>
+                                    <li><strong>Uniform Distribution:</strong> Distributes keys evenly across the table</li>
+                                    <li><strong>Efficient:</strong> Computes quickly without excessive CPU usage</li>
+                                    <li><strong>Avalanche Effect:</strong> Small changes in input cause significant output changes</li>
+                                    <li><strong>Low Collision Rate:</strong> Minimizes different keys mapping to the same hash</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Common Hash Functions:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Division Method:</strong> h(k) = k mod m (where m is table size)</li>
+                                    <li><strong>Multiplication Method:</strong> h(k) = ⌊m(kA mod 1)⌋ where A is a constant</li>
+                                    <li><strong>Universal Hashing:</strong> Selects functions randomly from a family</li>
+                                    <li><strong>Cryptographic:</strong> MD5, SHA-1, SHA-256 (for security applications)</li>
+                                    <li><strong>Non-cryptographic:</strong> MurmurHash, xxHash (for high performance)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="ds-description">Hash functions convert variable-length inputs into fixed-length outputs that can be used as indices in a hash table. A key challenge in hash function design is balancing speed with collision resistance.</p>
+                    </div>
+
+                    <div class="data-structure-card">
+                        <div class="ds-title">Collision Handling</div>
+                        <p class="ds-description">Techniques to resolve situations when multiple keys hash to the same bucket location, essential for maintaining hash table performance.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Chaining (Separate Chaining):</strong>
+                                <ul class="feature-list">
+                                    <li>Each bucket contains a linked list or dynamic array of elements</li>
+                                    <li>All colliding elements are stored in the same bucket's list</li>
+                                    <li>No limit on load factor, but performance degrades as chains grow</li>
+                                    <li>Lookup, insert, and delete are O(1 + α) where α is the load factor</li>
+                                    <li>Memory overhead for pointers or references</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Open Addressing:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Linear Probing:</strong> Check next slot sequentially until empty slot found</li>
+                                    <li><strong>Quadratic Probing:</strong> Check positions using quadratic function (h + i², h + i² + i, etc.)</li>
+                                    <li><strong>Double Hashing:</strong> Use second hash function to determine probe step size</li>
+                                    <li>Better cache locality than chaining</li>
+                                    <li>Sensitive to load factor (performance degrades above 0.7)</li>
+                                    <li>Requires tombstone markers for deleted items</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Robin Hood Hashing:</strong>
+                                <ul class="feature-list">
+                                    <li>Variant of open addressing that minimizes probe sequence length variance</li>
+                                    <li>During insertion, a key may displace another if it has traveled "further from home"</li>
+                                    <li>Reduces worst-case lookup times</li>
+                                    <li>Maintains more uniform distribution</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Cuckoo Hashing:</strong>
+                                <ul class="feature-list">
+                                    <li>Uses multiple hash functions and tables</li>
+                                    <li>Each key has multiple possible positions</li>
+                                    <li>When collision occurs, existing key is kicked out and relocated</li>
+                                    <li>Guarantees O(1) worst-case lookups</li>
+                                    <li>May require occasional rehashing if insertion cycles detected</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="ds-description">The choice of collision resolution strategy significantly affects performance characteristics, memory usage, and implementation complexity of hash tables. While chaining is often simpler to implement, open addressing techniques can offer better performance with careful tuning.</p>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Load Factor and Rehashing</div>
+                        <p class="ds-description">Critical concepts in hash table implementation that impact performance and memory efficiency as the table fills up.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Load Factor (α):</strong>
+                                <ul class="feature-list">
+                                    <li>Ratio of filled slots to total slots: α = n/m</li>
+                                    <li>Higher load factors save memory but increase collision probability</li>
+                                    <li>Lower load factors reduce collisions but waste space</li>
+                                    <li>Typical target ranges: 0.5-0.75 for open addressing, 0.75-1.0 for chaining</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Rehashing Process:</strong>
+                                <ul class="feature-list">
+                                    <li>Create new table with larger capacity (typically 2× current size)</li>
+                                    <li>Recompute hash for each existing element with new table size</li>
+                                    <li>Insert each element into its new position</li>
+                                    <li>Replace old table with new table</li>
+                                    <li>Amortized cost keeps operations at O(1) average time</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Performance Impacts:</strong>
+                                <ul class="feature-list">
+                                    <li>Occasional large pauses during rehashing operations</li>
+                                    <li>Incremental rehashing can spread cost over multiple operations</li>
+                                    <li>Static hash tables (fixed size) avoid rehashing but risk performance degradation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                     <h4>HashMaps and Dictionaries</h4>
                     <p>Dynamic data structures that store and manage key-value pairs using hashing techniques:</p>
                     
                     <div class="data-structure-card">
                         <div class="ds-title">HashMaps</div>
-                        <p class="ds-description">Each key is processed using a hash function to generate a unique memory address for storing the corresponding value, enabling efficient data retrieval.</p>
+                        <p class="ds-description">Each key is processed using a hash function to generate a unique memory address for storing the corresponding value, enabling efficient data retrieval. The internal implementation typically involves an array of buckets with collision resolution strategies.</p>
                         
                         <!-- Add TwoSums image for the hashmap section -->
                         <div class="image-container">
@@ -295,9 +641,22 @@
                             <div>
                                 <strong>Key Features:</strong>
                                 <ul class="feature-list">
-                                    <li>O(1) time complexity for lookups, insertions, and deletions</li>
-                                    <li>Dynamic size with automatic resizing</li>
+                                    <li>O(1) average time complexity for lookups, insertions, and deletions</li>
+                                    <li>O(n) worst-case when many collisions occur</li>
+                                    <li>Dynamic size with automatic rehashing when load factor threshold exceeded</li>
                                     <li>Not thread-safe without synchronization</li>
+                                    <li>Keys must be immutable or hash code must remain consistent</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Implementation Variations:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>HashMap:</strong> General-purpose key-value mapping</li>
+                                    <li><strong>LinkedHashMap:</strong> Preserves insertion order using doubly-linked list</li>
+                                    <li><strong>WeakHashMap:</strong> Uses weak references allowing entries to be garbage collected</li>
+                                    <li><strong>IdentityHashMap:</strong> Uses reference equality (==) instead of object equality (equals)</li>
+                                    <li><strong>ConcurrentHashMap:</strong> Thread-safe with lock striping for concurrent access</li>
                                 </ul>
                             </div>
                             
@@ -307,6 +666,7 @@
                                     <li>Frequency counting and tracking</li>
                                     <li>Caching and memoization</li>
                                     <li>Two-sum type problems</li>
+                                    <li>Grouping and deduplication</li>
                                 </ul>
                             </div>
                             
@@ -317,6 +677,8 @@
                                     <li>Bi-directional mapping</li>
                                     <li>Caching computed results</li>
                                     <li>Dictionary implementations</li>
+                                    <li>Symbol tables in interpreters and compilers</li>
+                                    <li>Database indexing and query optimization</li>
                                 </ul>
                             </div>
                         </div>
@@ -324,15 +686,27 @@
                     
                     <div class="data-structure-card">
                         <div class="ds-title">HashSet</div>
-                        <p class="ds-description">A collection that contains no duplicate elements, implementing mathematical set operations with hash table performance.</p>
+                        <p class="ds-description">A collection that contains no duplicate elements, implementing mathematical set operations with hash table performance. Typically implemented as a wrapper around HashMap with dummy values or as a specialized structure.</p>
                         
                         <div class="feature-group">
                             <div>
                                 <strong>Characteristics:</strong>
                                 <ul class="feature-list">
                                     <li>Unique elements only</li>
-                                    <li>No key-value pairs, just values</li>
+                                    <li>No key-value pairs, just values (keys with dummy values internally)</li>
                                     <li>O(1) average case operations</li>
+                                    <li>No guaranteed element ordering unless using LinkedHashSet</li>
+                                    <li>Not synchronized by default</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Implementations:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>HashSet:</strong> Standard implementation using HashMap</li>
+                                    <li><strong>LinkedHashSet:</strong> Maintains insertion order</li>
+                                    <li><strong>ConcurrentHashSet:</strong> Thread-safe implementation</li>
+                                    <li><strong>EnumSet:</strong> Specialized for enum values</li>
                                 </ul>
                             </div>
                             
@@ -343,6 +717,56 @@
                                     <li>Set operations (union, intersection, difference)</li>
                                     <li>Quick membership testing</li>
                                     <li>De-duplication problems</li>
+                                    <li>Tracking visited states in graph algorithms</li>
+                                    <li>Implementing sparse bitsets</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Specialized Hash Structures</div>
+                        <p class="ds-description">Hash-based data structures optimized for specific use cases that extend beyond standard HashMaps and HashSets.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Bloom Filter:</strong>
+                                <ul class="feature-list">
+                                    <li>Probabilistic data structure for membership testing</li>
+                                    <li>Uses multiple hash functions and a bit array</li>
+                                    <li>Can have false positives but never false negatives</li>
+                                    <li>Extremely space-efficient</li>
+                                    <li>Used for caching, spell checking, network routing</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Count-Min Sketch:</strong>
+                                <ul class="feature-list">
+                                    <li>Probabilistic data structure for frequency estimation</li>
+                                    <li>Uses multiple hash functions and a 2D counter array</li>
+                                    <li>Provides approximate counts with bounded error</li>
+                                    <li>Space-efficient for tracking stream data</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Consistent Hashing:</strong>
+                                <ul class="feature-list">
+                                    <li>Distributes keys across multiple servers</li>
+                                    <li>Minimizes key redistribution when servers added/removed</li>
+                                    <li>Critical for distributed caching and databases</li>
+                                    <li>Used in systems like Memcached, Cassandra, DynamoDB</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Perfect Hashing:</strong>
+                                <ul class="feature-list">
+                                    <li>Guarantees no collisions with a static key set</li>
+                                    <li>Often uses two-level hash structure</li>
+                                    <li>O(1) worst-case lookup time</li>
+                                    <li>Useful for compiler symbol tables and static dictionaries</li>
                                 </ul>
                             </div>
                         </div>
@@ -353,8 +777,7 @@
                 <div class="highlight">
                     <h4>Binary Trees</h4>
                     <p>Hierarchical data structures with a root node and at most two children per node:</p>
-                    
-                    <div class="data-structure-card">
+                      <div class="data-structure-card">
                         <div class="ds-title">Binary Search Tree</div>
                         <p class="ds-description">A binary tree where the left subtree of each node contains only nodes with keys less than the node's key, and the right subtree contains only nodes with keys greater than the node's key.</p>
                         
@@ -362,9 +785,20 @@
                             <div>
                                 <strong>Key Features:</strong>
                                 <ul class="feature-list">
-                                    <li>Ordered key structure</li>
-                                    <li>O(log n) operations when balanced</li>
+                                    <li>Ordered key structure follows binary search property</li>
+                                    <li>O(log n) operations when balanced, but can degrade to O(n) in worst case</li>
                                     <li>In-order traversal gives sorted sequence</li>
+                                    <li>Simpler implementation than balanced alternatives</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Common Operations:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Search:</strong> O(h) where h is height</li>
+                                    <li><strong>Insert:</strong> O(h), place new node as leaf</li>
+                                    <li><strong>Delete:</strong> O(h), with successor replacement</li>
+                                    <li><strong>Traversal:</strong> In-order, Pre-order, Post-order</li>
                                 </ul>
                             </div>
                             
@@ -374,39 +808,55 @@
                                     <li>Implementing associative arrays</li>
                                     <li>Database indexing</li>
                                     <li>Priority queues</li>
+                                    <li>Symbol tables in compilers</li>
                                 </ul>
                             </div>
                         </div>
+                        
+                        <p class="ds-description">The main weakness of basic BSTs is their tendency to become unbalanced with certain insertion patterns, leading to worst-case O(n) operation times. This issue is addressed by self-balancing variants like AVL and Red-Black trees.</p>
                     </div>
-                    
-                    <div class="data-structure-card">
+                      <div class="data-structure-card">
                         <div class="ds-title">AVL Trees</div>
-                        <p class="ds-description">Self-balancing binary search tree where the heights of the two child subtrees of any node differ by at most one.</p>
+                        <p class="ds-description">Self-balancing binary search tree where the heights of the two child subtrees of any node differ by at most one. Named after inventors Adelson-Velsky and Landis, AVL trees were the first dynamically balanced trees to be described.</p>
                         
                         <div class="feature-group">
                             <div>
                                 <strong>Key Features:</strong>
                                 <ul class="feature-list">
-                                    <li>Self-balancing mechanism</li>
+                                    <li>Strictly balanced with balance factor ∈ {-1, 0, 1}</li>
                                     <li>Guaranteed O(log n) operations</li>
-                                    <li>Height balance factor ≤ 1</li>
+                                    <li>More rigidly balanced than Red-Black trees</li>
+                                    <li>Balance factor = height(left) - height(right)</li>
+                                    <li>Maximum height is 1.44 × log₂(n+2) - 0.328</li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <strong>Operations:</strong>
+                                <strong>Balancing Operations:</strong>
                                 <ul class="feature-list">
-                                    <li>Left rotation</li>
-                                    <li>Right rotation</li>
-                                    <li>Left-Right and Right-Left rotations</li>
+                                    <li><strong>Left Rotation:</strong> For right-heavy subtrees</li>
+                                    <li><strong>Right Rotation:</strong> For left-heavy subtrees</li>
+                                    <li><strong>Left-Right Rotation:</strong> For left child that's right-heavy</li>
+                                    <li><strong>Right-Left Rotation:</strong> For right child that's left-heavy</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Performance Characteristics:</strong>
+                                <ul class="feature-list">
+                                    <li>Faster lookups than Red-Black trees</li>
+                                    <li>More expensive insertion/deletion due to potential cascading rotations</li>
+                                    <li>Uses more space per node (balance factor storage)</li>
+                                    <li>Maintains better height guarantee than Red-Black</li>
                                 </ul>
                             </div>
                         </div>
+                        
+                        <p class="ds-description">AVL trees excel in applications where lookup operations are more frequent than insertions and deletions, as they maintain a more rigid balance that optimizes search performance at the cost of more complex update operations.</p>
                     </div>
-                    
-                    <div class="data-structure-card">
+                      <div class="data-structure-card">
                         <div class="ds-title">Red-Black Trees</div>
-                        <p class="ds-description">Self-balancing binary search tree with each node having an extra attribute for color (red or black), used to ensure balance during operations.</p>
+                        <p class="ds-description">Self-balancing binary search tree with each node having an extra attribute for color (red or black), used to ensure balance during operations. Red-Black trees provide efficient worst-case guarantees for insertion, deletion, and search operations.</p>
                         
                         <div class="feature-group">
                             <div>
@@ -414,76 +864,271 @@
                                 <ul class="feature-list">
                                     <li>Self-balancing with color properties</li>
                                     <li>Guaranteed O(log n) operations</li>
-                                    <li>Used in many language standard libraries</li>
+                                    <li>Used in many language standard libraries (Java TreeMap, C++ std::map)</li>
+                                    <li>Less strictly balanced than AVL trees</li>
+                                    <li>Maximum height is 2 × log₂(n+1)</li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <strong>Properties:</strong>
+                                <strong>Red-Black Properties:</strong>
                                 <ul class="feature-list">
                                     <li>Every node is either red or black</li>
                                     <li>The root is black</li>
-                                    <li>No red node has a red child</li>
-                                    <li>Every path from root to leaf has the same number of black nodes</li>
+                                    <li>All leaf nodes (NIL) are black</li>
+                                    <li>No red node has a red child (No two reds in a row)</li>
+                                    <li>Every path from root to leaf has the same number of black nodes (black-height)</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Balancing Operations:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Recoloring:</strong> Change node colors to fix violations</li>
+                                    <li><strong>Rotation:</strong> Left and right rotations similar to AVL</li>
+                                    <li><strong>Fix-up procedures:</strong> Special algorithms for insertion and deletion</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Performance Characteristics:</strong>
+                                <ul class="feature-list">
+                                    <li>Faster insertions/deletions than AVL trees</li>
+                                    <li>Slightly slower lookups than AVL trees</li>
+                                    <li>Fewer rotations on average during updates</li>
+                                    <li>Better for write-heavy applications</li>
                                 </ul>
                             </div>
                         </div>
+                        
+                        <p class="ds-description">Red-Black trees are often preferred in real-world applications due to their more efficient insertion and deletion operations compared to AVL trees, making them ideal for scenarios with frequent updates. The Linux kernel uses a variant called RB trees for memory management.</p>
                     </div>
 
                     <div class="section-divider"></div>
 
                     <h4>Advanced Tree Structures</h4>
                     <p>Specialized tree data structures for specific use cases:</p>
-                    
-                    <div class="data-structure-card">
+                      <div class="data-structure-card">
                         <div class="ds-title">B-Trees</div>
-                        <p class="ds-description">Self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.</p>
+                        <p class="ds-description">Self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. B-Trees generalize binary search trees by allowing nodes to have more than two children.</p>
                         
                         <div class="feature-group">
                             <div>
                                 <strong>Key Features:</strong>
                                 <ul class="feature-list">
-                                    <li>Multiple keys per node</li>
-                                    <li>Optimized for disk operations</li>
-                                    <li>Balanced height across all leaf nodes</li>
+                                    <li>Multiple keys and children per node (order m: up to m-1 keys, m children)</li>
+                                    <li>All leaf nodes at same depth (perfect balance)</li>
+                                    <li>Optimized for disk-based storage systems</li>
+                                    <li>Minimizes disk I/O operations</li>
+                                    <li>Height is logarithmic relative to number of elements: O(log_m(n))</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Node Properties:</strong>
+                                <ul class="feature-list">
+                                    <li>Non-leaf nodes have at least ⌈m/2⌉ children (except root)</li>
+                                    <li>All nodes contain between ⌈m/2⌉-1 and m-1 keys (except root)</li>
+                                    <li>Keys within each node are stored in ascending order</li>
+                                    <li>All keys in a subtree are in the correct range relative to the parent keys</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Operations:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Search:</strong> O(log_m(n)) - traverse from root to leaf</li>
+                                    <li><strong>Insert:</strong> O(log_m(n)) - may require node splits and propagation upward</li>
+                                    <li><strong>Delete:</strong> O(log_m(n)) - may require redistribution or merging of nodes</li>
                                 </ul>
                             </div>
                             
                             <div>
                                 <strong>Applications:</strong>
                                 <ul class="feature-list">
-                                    <li>Database systems</li>
-                                    <li>File systems</li>
-                                    <li>Search engines</li>
+                                    <li>Database indexing (MySQL's InnoDB, PostgreSQL)</li>
+                                    <li>File systems (NTFS, HFS+, ext4)</li>
+                                    <li>Search engines (inverted indices)</li>
+                                    <li>Key-value stores (Berkeley DB)</li>
                                 </ul>
                             </div>
                         </div>
+                        
+                        <p class="ds-description">B-Trees excel in systems where data is stored on slow storage media like disk drives. By storing multiple keys per node, they minimize the number of disk accesses required for operations, drastically improving performance for external storage systems.</p>
+                    </div>
+                      <div class="data-structure-card">
+                        <div class="ds-title">Trie (Prefix Tree)</div>
+                        <p class="ds-description">A specialized tree structure optimized for string operations, where each node represents a single character and paths from root to nodes form strings. The name "trie" comes from the word retrieval, highlighting its primary use case.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Key Features:</strong>
+                                <ul class="feature-list">
+                                    <li>Character-based tree with shared prefixes</li>
+                                    <li>O(m) operations, where m = string length (independent of dataset size)</li>
+                                    <li>Each node can have up to alphabet-size children (e.g., 26 for lowercase English)</li>
+                                    <li>Common prefixes are represented by shared paths</li>
+                                    <li>Terminal nodes or flags indicate complete words</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Operations:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Insert:</strong> O(m) - follow/create path for each character</li>
+                                    <li><strong>Search:</strong> O(m) - traverse path for the string</li>
+                                    <li><strong>Delete:</strong> O(m) - remove terminal flag or prune path</li>
+                                    <li><strong>Prefix matching:</strong> O(p) where p = prefix length</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Applications:</strong>
+                                <ul class="feature-list">
+                                    <li>Autocomplete and predictive text systems</li>
+                                    <li>Spell checkers and dictionary implementations</li>
+                                    <li>IP routing tables (CIDR, longest prefix matching)</li>
+                                    <li>Word games (like Boggle, Scrabble solvers)</li>
+                                    <li>Natural language processing</li>
+                                    <li>Genome sequence analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="ds-description">Tries are extremely efficient for string-specific operations like prefix matching and autocomplete functionality. Their primary advantage is that look-up time is independent of the number of strings stored. However, they can consume significant memory in naive implementations, which has led to compact variants like compressed tries and suffix trees.</p>
                     </div>
                     
                     <div class="data-structure-card">
-                        <div class="ds-title">Trie (Prefix Tree)</div>
-                        <p class="ds-description">A tree-like data structure that stores a dynamic set of strings, where keys are usually strings and the position in the trie denotes the key.</p>
+                        <div class="ds-title">2-3 Trees</div>
+                        <p class="ds-description">A self-balancing search tree where internal nodes have either 2 children (and 1 key) or 3 children (and 2 keys). All leaves appear at the same level, ensuring perfect balance.</p>
                         
                         <div class="feature-group">
                             <div>
                                 <strong>Key Features:</strong>
                                 <ul class="feature-list">
-                                    <li>Character-based tree for strings</li>
-                                    <li>O(m) operations, m = string length</li>
-                                    <li>Space-efficient with shared prefixes</li>
+                                    <li>Perfectly balanced tree with guaranteed O(log n) operations</li>
+                                    <li>Every internal node has either 2 or 3 children</li>
+                                    <li>All leaves are at the same depth</li>
+                                    <li>Conceptual foundation for Red-Black trees</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Node Types:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>2-node:</strong> Contains 1 key, has 2 children</li>
+                                    <li><strong>3-node:</strong> Contains 2 keys, has 3 children</li>
+                                    <li>Keys are ordered: smaller key on left, larger on right</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Operations:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Search:</strong> Similar to BST but with multiple keys per node</li>
+                                    <li><strong>Insert:</strong> Split 4-nodes (temporary state during insertion) upward</li>
+                                    <li><strong>Delete:</strong> Borrow or merge nodes to maintain tree properties</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Advantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Perfect balance without complex rotation procedures</li>
+                                    <li>Conceptually simpler than Red-Black trees</li>
+                                    <li>Foundation for understanding more complex B-trees</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="ds-description">2-3 Trees provide an elegant theoretical foundation for balanced trees. While not commonly implemented directly due to the overhead of different node types, their principles directly translate to Red-Black trees, which are effectively a binary tree encoding of 2-3 trees (where red links represent 3-nodes).</p>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">B+ Trees</div>
+                        <p class="ds-description">A variant of B-Tree optimized for storage systems, where all records are stored at the leaf level and leaves are linked for efficient sequential access.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Key Features:</strong>
+                                <ul class="feature-list">
+                                    <li>All data records stored only at leaf nodes</li>
+                                    <li>Internal nodes store only keys for navigation</li>
+                                    <li>Leaf nodes linked together in sequential order</li>
+                                    <li>Higher fanout than regular B-Trees</li>
+                                    <li>Better suited for range queries and sequential access</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Advantages over B-Trees:</strong>
+                                <ul class="feature-list">
+                                    <li>Faster sequential access via leaf node links</li>
+                                    <li>More efficient disk space usage</li>
+                                    <li>Better query performance for range operations</li>
+                                    <li>More keys per node in internal nodes (higher fanout)</li>
                                 </ul>
                             </div>
                             
                             <div>
                                 <strong>Applications:</strong>
                                 <ul class="feature-list">
-                                    <li>Autocomplete systems</li>
-                                    <li>Spell checkers</li>
-                                    <li>IP routing (longest prefix matching)</li>
-                                    <li>Word games</li>
+                                    <li>Database management systems (most RDBMS indexes)</li>
+                                    <li>File systems (NTFS, XFS, JFS)</li>
+                                    <li>Indexing in NoSQL systems</li>
                                 </ul>
                             </div>
                         </div>
+                        
+                        <p class="ds-description">B+ Trees are the most widely used data structure in database index implementations. By storing data only at leaf level and linking the leaves, they optimize both random access and sequential scanning operations, crucial for database performance. Most modern relational databases use B+ Trees for their primary index structures.</p>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Splay Trees</div>
+                        <p class="ds-description">A self-adjusting binary search tree that automatically moves frequently accessed elements closer to the root to improve future access times.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Key Features:</strong>
+                                <ul class="feature-list">
+                                    <li>Self-adjusting structure based on access patterns</li>
+                                    <li>Recently accessed items moved to root via "splaying"</li>
+                                    <li>No explicit balancing information stored</li>
+                                    <li>Amortized O(log n) performance</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Splaying Operations:</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Zig:</strong> Single rotation when parent is root</li>
+                                    <li><strong>Zig-Zig:</strong> Double rotation when node and parent are both left/right children</li>
+                                    <li><strong>Zig-Zag:</strong> Double rotation when node and parent are opposite children</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Advantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Automatically adapts to access patterns</li>
+                                    <li>Simple implementation (no balance factors)</li>
+                                    <li>Good performance for localized access patterns</li>
+                                    <li>Works well as a cache</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Applications:</strong>
+                                <ul class="feature-list">
+                                    <li>Caching systems</li>
+                                    <li>Memory management</li>
+                                    <li>Network routing tables</li>
+                                    <li>Implementing other data structures (e.g., Union-Find)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="ds-description">Splay trees excel in applications with non-uniform access patterns, effectively serving as both a search tree and a self-organizing cache. While individual operations might occasionally take O(n) time, the amortized cost remains O(log n), with frequently accessed elements requiring even less time to locate.</p>
                     </div>
                 </div>
 
@@ -503,6 +1148,8 @@
                                     <li>O(1) edge lookup</li>
                                     <li>O(V²) space complexity</li>
                                     <li>Better for dense graphs</li>
+                                    <li>Memory inefficient for sparse graphs</li>
+                                    <li>Adding/removing vertices is O(V²) (requires resizing the matrix)</li>
                                 </ul>
                             </div>
                             
@@ -512,8 +1159,67 @@
                                     <li>Simple implementation</li>
                                     <li>Quick edge modifications</li>
                                     <li>Suitable for small graphs</li>
+                                    <li>Efficient for dense graphs where E ≈ V²</li>
+                                    <li>Simplifies algorithms like Floyd-Warshall</li>
                                 </ul>
                             </div>
+                            
+                            <div>
+                                <strong>Disadvantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Wasteful for sparse graphs</li>
+                                    <li>Less efficient graph traversal (must check every vertex)</li>
+                                    <li>Parallel edges require additional data structures</li>
+                                    <li>May not fit in memory for large graphs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-javascript">
+// Adjacency Matrix Implementation (JavaScript)
+class Graph {
+    constructor(vertices) {
+        this.vertices = vertices;
+        this.matrix = [];
+        
+        // Initialize matrix with zeros
+        for (let i = 0; i < vertices; i++) {
+            this.matrix.push(new Array(vertices).fill(0));
+        }
+    }
+    
+    // Add edge from vertex v to vertex w with given weight
+    addEdge(v, w, weight = 1) {
+        if (v >= 0 && v < this.vertices && w >= 0 && w < this.vertices) {
+            this.matrix[v][w] = weight;
+            // For undirected graph, add both directions
+            // this.matrix[w][v] = weight;
+        }
+    }
+    
+    // Check if edge exists from v to w
+    hasEdge(v, w) {
+        if (v >= 0 && v < this.vertices && w >= 0 && w < this.vertices) {
+            return this.matrix[v][w] !== 0;
+        }
+        return false;
+    }
+    
+    // Get all adjacent vertices of vertex v
+    getAdjacentVertices(v) {
+        const adjacent = [];
+        if (v >= 0 && v < this.vertices) {
+            for (let i = 0; i < this.vertices; i++) {
+                if (this.matrix[v][i] !== 0) {
+                    adjacent.push(i);
+                }
+            }
+        }
+        return adjacent;
+    }
+}
+</code></pre>
                         </div>
                     </div>
                     
@@ -525,9 +1231,32 @@
                             <div>
                                 <strong>Characteristics:</strong>
                                 <ul class="feature-list">
-                                    <li>O(E/V) edge lookup on average</li>
+                                    <li>O(degree(v)) edge lookup (average case)</li>
                                     <li>O(V + E) space complexity</li>
                                     <li>Better for sparse graphs</li>
+                                    <li>Efficient traversal of adjacent vertices</li>
+                                    <li>Dynamic vertex addition with O(1) complexity</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Advantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Space-efficient for sparse graphs</li>
+                                    <li>Better performance for most graph algorithms</li>
+                                    <li>Easy to represent parallel edges</li>
+                                    <li>Efficient for traversal algorithms (BFS, DFS)</li>
+                                    <li>Lower memory overhead for real-world networks</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Disadvantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Slower edge existence check than adjacency matrix</li>
+                                    <li>More complex implementation</li>
+                                    <li>Edge removal requires searching through lists</li>
+                                    <li>No random access to edges</li>
                                 </ul>
                             </div>
                             
@@ -538,8 +1267,63 @@
                                     <li>Road networks and navigation</li>
                                     <li>Dependency graphs</li>
                                     <li>Web page link structures</li>
+                                    <li>Most real-world network representations</li>
                                 </ul>
                             </div>
+                        </div>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-python">
+# Adjacency List Implementation (Python)
+class Graph:
+    def __init__(self):
+        self.graph = {}
+    
+    # Add vertex to the graph
+    def add_vertex(self, vertex):
+        if vertex not in self.graph:
+            self.graph[vertex] = []
+    
+    # Add edge between vertices (undirected graph)
+    def add_edge(self, vertex1, vertex2, weight=1):
+        # Ensure both vertices exist
+        if vertex1 not in self.graph:
+            self.add_vertex(vertex1)
+        if vertex2 not in self.graph:
+            self.add_vertex(vertex2)
+            
+        # For weighted graph, store (vertex, weight) tuples
+        self.graph[vertex1].append((vertex2, weight))
+        # For undirected graph, add both directions
+        self.graph[vertex2].append((vertex1, weight))
+    
+    # Get all adjacent vertices of a vertex
+    def get_neighbors(self, vertex):
+        if vertex in self.graph:
+            return [neighbor for neighbor, _ in self.graph[vertex]]
+        return []
+    
+    # Perform BFS traversal starting from vertex
+    def bfs(self, start_vertex):
+        if start_vertex not in self.graph:
+            return []
+            
+        visited = set()
+        queue = [start_vertex]
+        visited.add(start_vertex)
+        result = []
+        
+        while queue:
+            current = queue.pop(0)
+            result.append(current)
+            
+            for neighbor, _ in self.graph[current]:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(neighbor)
+                    
+        return result
+</code></pre>
                         </div>
                     </div>
                     
@@ -551,122 +1335,377 @@
                             <div>
                                 <strong>Characteristics:</strong>
                                 <ul class="feature-list">
-                                    <li>O(E) edge lookup</li>
+                                    <li>O(E) edge lookup (linear search through edges)</li>
                                     <li>O(E) space complexity</li>
                                     <li>Simple to implement</li>
+                                    <li>Efficient for algorithms that process all edges sequentially</li>
+                                    <li>Most compact representation for very sparse graphs</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Advantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Memory efficient (stores only what's necessary)</li>
+                                    <li>Simple serialization/deserialization</li>
+                                    <li>Easy to add or remove edges</li>
+                                    <li>Ideal for edge-centric algorithms</li>
+                                    <li>Edge properties are easily associated with edges</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Disadvantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Slow to check if two vertices are connected</li>
+                                    <li>Inefficient for finding neighbors of a vertex</li>
+                                    <li>Not suitable for vertex-centric traversals</li>
+                                    <li>Requires linear search for most operations</li>
                                 </ul>
                             </div>
                             
                             <div>
                                 <strong>Best Used For:</strong>
                                 <ul class="feature-list">
-                                    <li>Algorithms that process all edges (MST)</li>
-                                    <li>When memory is constrained</li>
+                                    <li>Algorithms that process all edges (MST, Kruskal's)</li>
+                                    <li>When memory usage is critical</li>
                                     <li>When edge iteration is the primary operation</li>
+                                    <li>Graphs with very few edges relative to vertices</li>
+                                    <li>Temporary graph representations</li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-java">
+// Edge List Implementation (Java)
+import java.util.*;
 
-            <section id="programming-techniques">
-                <h2>Essential Programming Techniques</h2>
+class Edge {
+    int source;
+    int destination;
+    int weight;
+    
+    public Edge(int source, int destination, int weight) {
+        this.source = source;
+        this.destination = destination;
+        this.weight = weight;
+    }
+}
 
-                <h3>Algorithmic Patterns</h3>
-                <div class="highlight">
-                    <h4>Basic Traversal Techniques</h4>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Two Pointers</div>
-                        <p class="ds-description">Technique that involves using multiple pointers to traverse data structures efficiently, often reducing the time complexity of solutions.</p>
-                        
-                        <!-- Add Container With Most Water image for the Two Pointers section -->
-                        <div class="image-container">
-                            <img src="Public/ContainerWithMostWater.png" alt="Container With Most Water Problem" class="algorithm-image">
-                            <p class="image-caption">Container With Most Water: Using two pointers to find maximum area container</p>
-                        </div>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Key Features:</strong>
-                                <ul class="feature-list">
-                                    <li>Reduces time complexity (often to O(n))</li>
-                                    <li>Constant space complexity O(1)</li>
-                                    <li>Often involves pointers moving from opposite ends</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Use Cases:</strong>
-                                <ul class="feature-list">
-                                    <li>Finding pairs with a target sum</li>
-                                    <li>Container with most water</li>
-                                    <li>Removing duplicates from sorted arrays</li>
-                                    <li>Palindrome verification</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Sliding Window</div>
-                        <p class="ds-description">Technique involving a window defined by two indices for its start and end, which slides over data to explore different subarrays or substrings.</p>
-                        
-                        <!-- Add Sliding Window images -->
-                        <div class="image-container">
-                            <img src="Public/MinimumSumArray.png" alt="Minimum Sum Subarray" class="algorithm-image">
-                            <p class="image-caption">Minimum Sum Subarray: Finding the subarray with minimum sum using sliding window</p>
-                        </div>
-                        
-                        <div class="image-container">
-                            <img src="Public/LongestSubstringWithoutRepeatingCharacters.png" alt="Longest Substring Without Repeating Characters" class="algorithm-image">
-                            <p class="image-caption">Longest Substring Without Repeating Characters: Using sliding window with a character hash map</p>
-                        </div>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Key Features:</strong>
-                                <ul class="feature-list">
-                                    <li>O(n) time complexity</li>
-                                    <li>Avoids redundant calculations</li>
-                                    <li>Window can be fixed-size or variable</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Use Cases:</strong>
-                                <ul class="feature-list">
-                                    <li>Finding subarrays with a sum constraint</li>
-                                    <li>Longest substring without repeating characters</li>
-                                    <li>Minimum window substring</li>
-                                    <li>Maximum sum subarray of size k</li>
-                                </ul>
-                            </div>
+class Graph {
+    private int vertices;
+    private List<Edge> edges;
+    
+    public Graph(int vertices) {
+        this.vertices = vertices;
+        this.edges = new ArrayList<>();
+    }
+    
+    public void addEdge(int source, int destination, int weight) {
+        Edge edge = new Edge(source, destination, weight);
+        edges.add(edge);
+        
+        // For undirected graph, add edge in both directions
+        // edges.add(new Edge(destination, source, weight));
+    }
+    
+    // Find all edges connected to a vertex (inefficient operation)
+    public List<Edge> getEdgesFromVertex(int vertex) {
+        List<Edge> result = new ArrayList<>();
+        for (Edge edge : edges) {
+            if (edge.source == vertex) {
+                result.add(edge);
+            }
+        }
+        return result;
+    }
+    
+    // Ideal for MST algorithms like Kruskal's
+    public void sortEdgesByWeight() {
+        Collections.sort(edges, Comparator.comparingInt(e -> e.weight));
+    }
+    
+    public List<Edge> getAllEdges() {
+        return edges;
+    }
+}
+</code></pre>
                         </div>
                     </div>
                     
                     <div class="data-structure-card">
-                        <div class="ds-title">Prefix Sum</div>
-                        <p class="ds-description">Precomputation technique that creates an array where each element is the sum of all previous elements in the original array, enabling efficient range queries.</p>
+                        <div class="ds-title">Incidence Matrix</div>
+                        <p class="ds-description">A 2D matrix where rows represent vertices and columns represent edges. Each entry indicates if the vertex is incident to the edge.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Characteristics:</strong>
+                                <ul class="feature-list">
+                                    <li>O(1) to check if a vertex is incident to an edge</li>
+                                    <li>O(V × E) space complexity</li>
+                                    <li>For directed graphs: +1 for source, -1 for destination, 0 otherwise</li>
+                                    <li>For undirected graphs: 1 for incident vertices, 0 otherwise</li>
+                                    <li>Allows easy representation of hyper-edges (edges connecting >2 vertices)</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Advantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Easy to find all edges incident to a vertex</li>
+                                    <li>Natural representation for edge-focused operations</li>
+                                    <li>Can handle parallel edges and self-loops naturally</li>
+                                    <li>Suitable for hypergraphs</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Disadvantages:</strong>
+                                <ul class="feature-list">
+                                    <li>Very space-inefficient</li>
+                                    <li>Not commonly used for standard graph algorithms</li>
+                                    <li>Slow for finding adjacent vertices</li>
+                                    <li>Expensive to modify (add/remove vertices or edges)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="ds-description">Incidence matrices are less common than adjacency matrices or adjacency lists but provide unique advantages for certain theoretical applications and problems involving hypergraphs.</p>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Implicit Graph Representation</div>
+                        <p class="ds-description">A representation where the graph structure is defined by functions rather than explicitly stored data structures, useful for graphs too large to fit in memory or for dynamically generated graphs.</p>
                         
                         <div class="feature-group">
                             <div>
                                 <strong>Key Features:</strong>
                                 <ul class="feature-list">
-                                    <li>O(1) for range sum queries</li>
-                                    <li>O(n) preprocessing time</li>
-                                    <li>Applicable to cumulative operations (sum, XOR, product)</li>
+                                    <li>Graph structure is computed on demand rather than stored</li>
+                                    <li>Neighbors are determined by rules or functions</li>
+                                    <li>Can represent infinite graphs</li>
+                                    <li>Memory usage independent of graph size</li>
+                                    <li>Common in computational geometry, game AI, and procedural generation</li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <strong>Use Cases:</strong>
+                                <strong>Applications:</strong>
                                 <ul class="feature-list">
-                                    <li>Range sum queries</li>
-                                    <li>Subarray sum problems</li>
-                                    <li>Checking for equilibrium points</li>
-                                    <li>2D matrix region sums</li>
+                                    <li>Grid-based pathfinding (game maps)</li>
+                                    <li>State space search problems</li>
+                                    <li>Infinite graphs (mathematical models)</li>
+                                    <li>Procedurally generated worlds</li>
+                                    <li>Constraint satisfaction problems</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-javascript">
+// Implicit Graph for Grid-Based Pathfinding (JavaScript)
+class GridGraph {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+        // We can optionally store obstacle information
+        this.obstacles = new Set();
+    }
+    
+    // Helper to convert 2D coordinates to a single identifier
+    toId(x, y) {
+        return y * this.width + x;
+    }
+    
+    // Helper to convert ID back to coordinates
+    toCoords(id) {
+        return {
+            x: id % this.width,
+            y: Math.floor(id / this.width)
+        };
+    }
+    
+    // Add obstacle at coordinates
+    addObstacle(x, y) {
+        this.obstacles.add(this.toId(x, y));
+    }
+    
+    // Check if position is valid and walkable
+    isValid(x, y) {
+        return x >= 0 && x < this.width && 
+               y >= 0 && y < this.height && 
+               !this.obstacles.has(this.toId(x, y));
+    }
+    
+    // Get neighbors of a cell - this is our implicit edge definition
+    getNeighbors(x, y) {
+        const directions = [
+            {x: 0, y: -1},  // Up
+            {x: 1, y: 0},   // Right
+            {x: 0, y: 1},   // Down
+            {x: -1, y: 0}   // Left
+            // Add diagonals if needed:
+            // {x: 1, y: -1}, {x: 1, y: 1}, {x: -1, y: 1}, {x: -1, y: -1}
+        ];
+        
+        return directions
+            .map(dir => ({x: x + dir.x, y: y + dir.y}))
+            .filter(pos => this.isValid(pos.x, pos.y));
+    }
+    
+    // Recursive implementation of BFS using a generator function
+    *recursiveBFS(startX, startY) {
+        const visited = new Set();
+        const queue = [{x: startX, y: startY}];
+        visited.add(this.toId(startX, startY));
+        
+        const processNextLevel = () => {
+            if (queue.length === 0) return;
+            
+            const levelSize = queue.length;
+            for (let i = 0; i < levelSize; i++) {
+                const current = queue.shift();
+                
+                // Yield the current position
+                yield current;
+                
+                // Get and process neighbors
+                const neighbors = this.getNeighbors(current.x, current.y);
+                for (const neighbor of neighbors) {
+                    const id = this.toId(neighbor.x, neighbor.y);
+                    if (!visited.has(id)) {
+                        visited.add(id);
+                        queue.push(neighbor);
+                    }
+                }
+            }
+            
+            // Process the next level recursively
+            yield* processNextLevel();
+        };
+        
+        // Start the recursive BFS
+        yield* processNextLevel();
+    }
+}
+
+// Example usage
+const graph = {
+    A: ['B', 'C'],
+    B: ['A', 'D', 'E'],
+    C: ['A', 'F'],
+    D: ['B'],
+    E: ['B', 'F'],
+    F: ['C', 'E']
+};
+
+console.log("Iterative BFS:", bfs(graph, 'A'));
+console.log("Recursive BFS:", recursiveBFS(graph, 'A'));
+// Both produce the same result: ['A', 'B', 'C', 'D', 'E', 'F']
+</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Comparison and Selection Guide</div>
+                        <p class="ds-description">Choosing the right graph representation depends on several factors including graph density, memory constraints, and the operations you need to perform frequently.</p>
+                        
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Operation</th>
+                                    <th>Adjacency Matrix</th>
+                                    <th>Adjacency List</th>
+                                    <th>Edge List</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Memory Usage</td>
+                                    <td>O(V²)</td>
+                                    <td>O(V + E)</td>
+                                    <td>O(E)</td>
+                                </tr>
+                                <tr>
+                                    <td>Edge Existence Check</td>
+                                    <td>O(1)</td>
+                                    <td>O(degree)</td>
+                                    <td>O(E)</td>
+                                </tr>
+                                <tr>
+                                    <td>Find All Edges</td>
+                                    <td>O(V²)</td>
+                                    <td>O(V + E)</td>
+                                    <td>O(1)</td>
+                                </tr>
+                                <tr>
+                                    <td>Find All Neighbors</td>
+                                    <td>O(V)</td>
+                                    <td>O(1) + O(degree)</td>
+                                    <td>O(E)</td>
+                                </tr>
+                                <tr>
+                                    <td>Add Edge</td>
+                                    <td>O(1)</td>
+                                    <td>O(1)</td>
+                                    <td>O(1)</td>
+                                </tr>
+                                <tr>
+                                    <td>Add Vertex</td>
+                                    <td>O(V²) (resizing)</td>
+                                    <td>O(1)</td>
+                                    <td>O(1)</td>
+                                </tr>
+                                <tr>
+                                    <td>Remove Edge</td>
+                                    <td>O(1)</td>
+                                    <td>O(degree)</td>
+                                    <td>O(E)</td>
+                                </tr>
+                                <tr>
+                                    <td>Graph Traversal (BFS/DFS)</td>
+                                    <td>O(V²)</td>
+                                    <td>O(V + E)</td>
+                                    <td>O(V*E)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>When to Choose Adjacency Matrix:</strong>
+                                <ul class="feature-list">
+                                    <li>Dense graphs (E ≈ V²)</li>
+                                    <li>Small graphs (< 1000 vertices)</li>
+                                    <li>Need fast edge lookups and modifications</li>
+                                    <li>Implementing algorithms like Floyd-Warshall</li>
+                                    <li>When graph is relatively static (few vertex additions)</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>When to Choose Adjacency List:</strong>
+                                <ul class="feature-list">
+                                    <li>Sparse graphs (E << V²)</li>
+                                    <li>Most general-purpose applications</li>
+                                    <li>When traversing adjacent vertices frequently</li>
+                                    <li>Memory-constrained environments</li>
+                                    <li>Dynamic graphs with changing vertices</li>
+                                    <li>Implementing most graph algorithms (DFS, BFS, Dijkstra's)</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>When to Choose Edge List```html
+                                <strong>When to Choose Edge List:</strong>
+                                <ul class="feature-list">
+                                    <li>Very sparse graphs</li>
+                                    <li>Implementing algorithms that process all edges (MST)</li>
+                                    <li>When memory usage is critical</li>
+                                    <li>When edge iteration is the primary operation</li>
+                                    <li>Graphs with very few edges relative to vertices</li>
+                                    <li>Temporary graph representations</li>
                                 </ul>
                             </div>
                         </div>
@@ -677,7 +1716,7 @@
                 <div class="highlight">
                     <div class="data-structure-card">
                         <div class="ds-title">Breadth-First Search (BFS)</div>
-                        <p class="ds-description">A level-by-level traversal strategy for graphs that explores all neighbors of a node before moving to the next level.</p>
+                        <p class="ds-description">A level-by-level traversal strategy for graphs, trees and matrixes that explores all neighbors of a node before moving to the next level.</p>
                         
                         <div class="feature-group">
                             <div>
@@ -696,6 +1735,112 @@
                                     <li>Level-order traversal in trees</li>
                                     <li>Finding connected components</li>
                                     <li>Social network connections</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-javascript">
+// Iterative BFS Implementation
+function bfs(graph, startVertex) {
+    const visited = new Set();
+    const queue = [startVertex];
+    visited.add(startVertex);
+    const result = [];
+    
+    while (queue.length > 0) {
+        const currentVertex = queue.shift();
+        result.push(currentVertex);
+        
+        // Get all adjacent vertices of the current vertex
+        const neighbors = graph[currentVertex] || [];
+        
+        for (const neighbor of neighbors) {
+            if (!visited.has(neighbor)) {
+                visited.add(neighbor);
+                queue.push(neighbor);
+            }
+        }
+    }
+    
+    return result;
+}
+
+// Recursive BFS Implementation
+function recursiveBFS(graph, startVertex) {
+    const visited = new Set();
+    const queue = [startVertex];
+    visited.add(startVertex);
+    const result = [];
+    
+    // Helper function to process one level at a time
+    function processNextLevel() {
+        if (queue.length === 0) {
+            return; // Base case: no more vertices to process
+        }
+        
+        const levelSize = queue.length;
+        
+        // Process all vertices at current level
+        for (let i = 0; i < levelSize; i++) {
+            const currentVertex = queue.shift();
+            result.push(currentVertex);
+            
+            // Add unvisited neighbors to queue
+            const neighbors = graph[currentVertex] || [];
+            for (const neighbor of neighbors) {
+                if (!visited.has(neighbor)) {
+                    visited.add(neighbor);
+                    queue.push(neighbor);
+                }
+            }
+        }
+        
+        // Recursively process the next level
+        processNextLevel();
+    }
+    
+    // Start the recursive BFS
+    processNextLevel();
+    return result;
+}
+
+// Example usage
+const graph = {
+    A: ['B', 'C'],
+    B: ['A', 'D', 'E'],
+    C: ['A', 'F'],
+    D: ['B'],
+    E: ['B', 'F'],
+    F: ['C', 'E']
+};
+
+console.log("Iterative BFS:", bfs(graph, 'A'));
+console.log("Recursive BFS:", recursiveBFS(graph, 'A'));
+// Both produce the same result: ['A', 'B', 'C', 'D', 'E', 'F']
+</code></pre>
+                        </div>
+                        
+                        <p class="ds-description">While recursive BFS is less common than iterative BFS (since BFS naturally fits the queue data structure), the recursive approach can be useful for certain applications where level-by-level processing is important, or when working with frameworks that favor recursive patterns.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Recursive BFS Benefits:</strong>
+                                <ul class="feature-list">
+                                    <li>Clear separation of level processing</li>
+                                    <li>Easier tracking of depth/distance from source</li>
+                                    <li>Simplified level-specific operations</li>
+                                    <li>Can be implemented with generators for lazy evaluation</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Considerations:</strong>
+                                <ul class="feature-list">
+                                    <li>Potential stack overflow for very deep graphs</li>
+                                    <li>Extra function call overhead</li>
+                                    <li>Typically less efficient than iterative version</li>
+                                    <li>Memory overhead from call stack</li>
                                 </ul>
                             </div>
                         </div>
@@ -773,87 +1918,6 @@
                                     <li>Robot navigation</li>
                                     <li>Route planning in maps</li>
                                     <li>Puzzle solving (8-puzzle, 15-puzzle)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Common Optimization Algorithms</h3>
-                <div class="highlight">
-                    <div class="data-structure-card">
-                        <div class="ds-title">Dynamic Programming</div>
-                        <p class="ds-description">Algorithmic technique for solving complex problems by breaking them into simpler overlapping subproblems and storing their solutions to avoid redundant computation.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Key Concepts:</strong>
-                                <ul class="feature-list">
-                                    <li>Overlapping subproblems</li>
-                                    <li>Optimal substructure</li>
-                                    <li>Memoization (top-down) or Tabulation (bottom-up)</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Classic Problems:</strong>
-                                <ul class="feature-list">
-                                    <li>Fibonacci sequence</li>
-                                    <li>Knapsack problem</li>
-                                    <li>Longest Common Subsequence</li>
-                                    <li>Edit Distance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Greedy Algorithms</div>
-                        <p class="ds-description">Optimization approach that makes locally optimal choices at each step, hoping to find a global optimum.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Characteristics:</strong>
-                                <ul class="feature-list">
-                                    <li>Makes decision based on current state only</li>
-                                    <li>No backtracking or reconsideration</li>
-                                    <li>Often simpler and more efficient than DP</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Common Applications:</strong>
-                                <ul class="feature-list">
-                                    <li>Huffman coding</li>
-                                    <li>Dijkstra's algorithm</li>
-                                    <li>Activity selection problem</li>
-                                    <li>Minimum spanning trees (Kruskal's, Prim's)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="data-structure-card">
-                        <div class="ds-title">Divide and Conquer</div>
-                        <p class="ds-description">Paradigm that solves problems by recursively breaking them down into smaller subproblems, solving each subproblem independently, and combining their solutions.</p>
-                        
-                        <div class="feature-group">
-                            <div>
-                                <strong>Strategy:</strong>
-                                <ul class="feature-list">
-                                    <li>Divide: Break problem into subproblems</li>
-                                    <li>Conquer: Solve subproblems recursively</li>
-                                    <li>Combine: Merge solutions into one</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <strong>Applications:</strong>
-                                <ul class="feature-list">
-                                    <li>Merge Sort and Quick Sort</li>
-                                    <li>Binary Search</li>
-                                    <li>Fast Fourier Transform</li>
-                                    <li>Strassen's Matrix Multiplication</li>
                                 </ul>
                             </div>
                         </div>
