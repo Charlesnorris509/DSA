@@ -1766,8 +1766,8 @@ function bfs(graph, startVertex) {
     return result;
 }
 
-// Recursive BFS Implementation
-function recursiveBFS(graph, startVertex) {
+// Recursive implementation of BFS using a generator function
+function* recursiveBFS(graph, startVertex) {
     const visited = new Set();
     const queue = [startVertex];
     visited.add(startVertex);
@@ -2123,40 +2123,261 @@ console.log("Recursive BFS:", recursiveBFS(graph, 'A'));
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <section id="methodology">
-                <h2>Research Methodology</h2>
-
-                <h3>Research Design</h3>
+                <h3>Key System Design Patterns</h3>
                 <div class="highlight">
-                    <p>This study will use a mixed-method approach, combining qualitative and quantitative research methods to gather comprehensive data on the effectiveness of AI in software engineering education.</p>
-                </div>
-
-                <h3>Data Collection</h3>
-                <div class="highlight">
-                    <p>Data will be collected through surveys, interviews, and analysis of existing literature and resources on AI and software engineering.</p>
-                </div>
-
-                <h3>Data Analysis</h3>
-                <div class="highlight">
-                    <p>Quantitative data will be analyzed using statistical methods, while qualitative data will be analyzed using thematic analysis to identify common themes and patterns.</p>
-                </div>
-
-                <h3>Expected Outcomes</h3>
-                <div class="highlight">
-                    <p>The research is expected to provide insights into the current state of AI in software engineering education, its effectiveness, and areas for improvement.</p>
-                </div>
-            </section>
-
-            <section id="conclusion">
-                <h2>Conclusion</h2>
-                <div class="highlight">
-                    <p>AI has the potential to significantly enhance the field of software engineering, particularly in the areas of system design, prompt engineering, and effectiveness analysis. By leveraging AI tools and techniques, software engineers can improve their productivity, the quality of their software, and their ability to solve complex problems.</p>
+                    <div class="data-structure-card">
+                        <div class="ds-title">Distributed System Patterns</div>
+                        <p class="ds-description">Design patterns to address common challenges in building reliable, scalable, and maintainable distributed systems.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Circuit Breaker Pattern</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Purpose:</strong> Prevent cascading failures by detecting failures and encapsulating logic for preventing a failure from constantly recurring</li>
+                                    <li><strong>Implementation:</strong> Three states (Closed, Open, Half-Open) with fallback mechanisms</li>
+                                    <li><strong>Popular Libraries:</strong> Resilience4j, Hystrix, Polly</li>
+                                    <li><strong>Use Cases:</strong> API calls, remote service invocations, resource-intensive operations</li>
+                                </ul>
+                                <p><strong>Example:</strong> When a service consistently fails to respond, the circuit breaker opens, immediately rejecting requests without attempting to call the failing service, then gradually allows test requests to check if the system has recovered.</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Bulkhead Pattern</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Purpose:</strong> Isolate failures to prevent them from cascading through the system</li>
+                                    <li><strong>Implementation:</strong> Separate thread pools, connection pools, or process boundaries</li>
+                                    <li><strong>Variants:</strong> Thread pool bulkhead, semaphore bulkhead, process bulkhead</li>
+                                    <li><strong>Use Cases:</strong> Multiple client integrations, resource partitioning, critical vs. non-critical operations</li>
+                                </ul>
+                                <p><strong>Example:</strong> A system using separate connection pools for critical vs. non-critical database operations ensures that resource exhaustion in one pool doesn't affect the other.</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Saga Pattern</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Purpose:</strong> Manage distributed transactions and maintain data consistency across services</li>
+                                    <li><strong>Implementation:</strong> Choreography (event-based) or Orchestration (central coordinator)</li>
+                                    <li><strong>Key Components:</strong> Local transactions, compensating transactions</li>
+                                    <li><strong>Use Cases:</strong> E-commerce order processing, financial transactions, multi-step business processes</li>
+                                </ul>
+                                <p><strong>Example:</strong> An order process spanning inventory, payment, and shipping services where each step publishes events that trigger subsequent steps, with compensating transactions to roll back changes if any step fails.</p>
+                            </div>
+                            
+                            <div>
+                                <strong>CQRS (Command Query Responsibility Segregation)</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Purpose:</strong> Separate read and write operations for different optimization strategies</li>
+                                    <li><strong>Implementation:</strong> Different models for commands (writes) and queries (reads)</li>
+                                    <li><strong>Variants:</strong> Single database, dual database, event sourcing integration</li>
+                                    <li><strong>Use Cases:</strong> High-read systems, complex domains, advanced reporting needs</li>
+                                </ul>
+                                <p><strong>Example:</strong> An e-commerce platform using normalized SQL database for order processing (commands) and denormalized NoSQL database for product catalog browsing (queries).</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Event Sourcing</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Purpose:</strong> Store state changes as a sequence of events rather than just the current state</li>
+                                    <li><strong>Implementation:</strong> Append-only event store with projections</li>
+                                    <li><strong>Benefits:</strong> Complete audit trail, time-travel debugging, reliable event publishing</li>
+                                    <li><strong>Use Cases:</strong> Financial systems, inventory tracking, collaborative applications</li>
+                                </ul>
+                                <p><strong>Example:</strong> A banking system storing all account transactions as immutable events, rebuilding account balance by replaying events, and enabling historical analysis of all state changes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Architectural Considerations:</strong>
+                                <p>Distributed system patterns often work best when combined strategically. For example, Event Sourcing frequently complements CQRS by providing the event stream for building specialized read models. Similarly, Circuit Breakers and Bulkheads often work together as part of a comprehensive resiliency strategy. The complexity of implementing these patterns has led to the emergence of specialized frameworks and libraries that provide out-of-box implementations with configurable behaviors.</p>
+                                <p>When applying these patterns, consider:</p>
+                                <ul class="feature-list">
+                                    <li><strong>Complexity Cost:</strong> These patterns introduce additional complexity that must be justified by the benefits</li>
+                                    <li><strong>Team Expertise:</strong> Ensure the development team understands the patterns and their implications</li>
+                                    <li><strong>Monitoring Requirements:</strong> Distributed patterns require sophisticated observability solutions</li>
+                                    <li><strong>Eventual Consistency:</strong> Many of these patterns trade immediate consistency for availability and partition tolerance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <p>However, the integration of AI in software engineering also presents challenges and risks that need to be carefully managed. It is essential to ensure that AI systems are transparent, explainable, and aligned with human values and ethics.</p>
+                    <div class="data-structure-card">
+                        <div class="ds-title">Containerization and Orchestration</div>
+                        <p class="ds-description">Container technologies provide a standardized way to package and deploy applications, while orchestration platforms manage container lifecycle at scale.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Docker</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Architecture:</strong> Lightweight containers sharing the host OS kernel</li>
+                                    <li><strong>Components:</strong> Docker Engine, Images, Containers, Registry</li>
+                                    <li><strong>Key Features:</strong> Isolation, portability, version control, resource efficiency</li>
+                                    <li><strong>Use Cases:</strong> Application packaging, development environments, CI/CD pipelines</li>
+                                </ul>
+                                <p><strong>Strengths:</strong> Simplified application distribution, consistent environments, resource efficiency compared to VMs.</p>
+                                <p><strong>Limitations:</strong> Single-host by default, security considerations, persistent data management complexity.</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Kubernetes</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Architecture:</strong> Container orchestration platform with master-node model</li>
+                                    <li><strong>Core Objects:</strong> Pods, Services, Deployments, StatefulSets, ConfigMaps</li>
+                                    <li><strong>Key Features:</strong> Auto-scaling, self-healing, service discovery, rolling updates</li>
+                                    <li><strong>Components:</strong> API Server, Scheduler, Controller Manager, etcd, Kubelet</li>
+                                    <li><strong>Use Cases:</strong> Microservices deployment, hybrid cloud systems, large-scale applications</li>
+                                </ul>
+                                <p><strong>Strengths:</strong> Production-ready orchestration, extensive ecosystem, declarative configuration, high resilience.</p>
+                                <p><strong>Limitations:</strong> Steep learning curve, operational complexity, resource overhead for small deployments.</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Docker Swarm</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Architecture:</strong> Native clustering for Docker with manager and worker nodes</li>
+                                    <li><strong>Key Features:</strong> Simple setup, Docker CLI integration, service scaling</li>
+                                    <li><strong>Use Cases:</strong> Simpler orchestration needs, Docker-centric environments</li>
+                                </ul>
+                                <p><strong>Strengths:</strong> Lower complexity than Kubernetes, native Docker integration, easier learning curve.</p>
+                                <p><strong>Limitations:</strong> Fewer features than Kubernetes, smaller ecosystem, less advanced networking.</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Service Mesh (Istio, Linkerd)</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Architecture:</strong> Network of proxies alongside containers for communication control</li>
+                                    <li><strong>Key Features:</strong> Traffic management, security, observability, policy enforcement</li>
+                                    <li><strong>Components:</strong> Data plane (proxies), Control plane (management)</li>
+                                    <li><strong>Use Cases:</strong> Complex microservices requiring advanced traffic control, security, and monitoring</li>
+                                </ul>
+                                <p><strong>Strengths:</strong> Service-to-service communication management, encryption, monitoring, traffic shaping.</p>
+                                <p><strong>Limitations:</strong> Additional complexity layer, performance overhead, steep learning curve.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Comparison Table</strong>
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>Kubernetes</th>
+                                            <th>Docker Swarm</th>
+                                            <th>Amazon ECS</th>
+                                            <th>Google Cloud Run</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Complexity</td>
+                                            <td>High</td>
+                                            <td>Low</td>
+                                            <td>Medium</td>
+                                            <td>Very Low</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Scaling Capacity</td>
+                                            <td>Very High</td>
+                                            <td>Medium</td>
+                                            <td>High</td>
+                                            <td>High</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Auto-Scaling</td>
+                                            <td>Advanced</td>
+                                            <td>Basic</td>
+                                            <td>Yes</td>
+                                            <td>Automatic</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GUI Dashboard</td>
+                                            <td>Yes</td>
+                                            <td>Limited</td>
+                                            <td>Yes</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Deployment Model</td>
+                                            <td>Any Cloud/On-Premise</td>
+                                            <td>Any Cloud/On-Premise</td>
+                                            <td>AWS Only</td>
+                                            <td>Google Cloud Only</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <p class="ds-description"><strong>Architectural Considerations:</strong> Container orchestration selection depends heavily on system scale, team expertise, and organizational ecosystem. For simpler applications or teams new to containerization, Docker Swarm or managed platforms like ECS may be appropriate starting points. For large-scale, multi-service applications requiring sophisticated deployment strategies and scaling capabilities, Kubernetes has become the de facto standard. In many organizations, a hybrid approach emerges: simpler services on managed platforms and more complex, critical services on Kubernetes. Service meshes add another layer that becomes valuable as microservice count grows beyond dozens of services and communication patterns become more complex.</p>
+                    </div>
                     
-                    <p>Further research and collaboration between AI experts and software engineers are crucial to fully realize the benefits of AI in software engineering and to address the associated challenges and risks.</p>
+                    <div class="data-structure-card">
+                        <div class="ds-title">Observability and Monitoring</div>
+                        <p class="ds-description">Systems for gaining insights into the behavior, performance, and health of distributed applications in production environments.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Three Pillars of Observability</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Metrics:</strong> Numerical representations of system behavior over time (counters, gauges, histograms)</li>
+                                    <li><strong>Logs:</strong> Text records of discrete events that occurred in the system</li>
+                                    <li><strong>Traces:</strong> Records of operations across service boundaries with timing and causal relationships</li>
+                                </ul>
+                                <p>Modern observability solutions combine these three dimensions to provide a comprehensive view of system behavior, enabling effective troubleshooting, performance optimization, and anomaly detection.</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Metrics Systems</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Prometheus:</strong> Open-source time-series database with a powerful query language (PromQL), pull model, and alerting</li>
+                                    <li><strong>Grafana:</strong> Visualization platform for metrics with dashboards, alerting, and multi-data-source support</li>
+                                    <li><strong>Datadog:</strong> SaaS platform for metrics, logs, and traces with comprehensive integrations and automated correlation</li>
+                                    <li><strong>CloudWatch:</strong> AWS native monitoring and observability service with metric collection, dashboards, and alarms</li>
+                                </ul>
+                                <p><strong>Key Considerations:</strong> Cardinality management, retention policies, aggregation functions, and alerting capabilities</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Logging Systems</strong>
+                                <ul class="feature-list">
+                                    <li><strong>ELK Stack:</strong> Elasticsearch (storage/search), Logstash (processing), Kibana (visualization)</li>
+                                    <li><strong>Fluentd/Fluent Bit:</strong> Unified logging layers that collect, transform and ship logs to various backends</li>
+                                    <li><strong>Loki:</strong> Highly-efficient, Prometheus-inspired log aggregation system designed for cost and scale</li>
+                                    <li><strong>Splunk:</strong> Enterprise platform for searching, monitoring, and analyzing machine-generated data</li>
+                                </ul>
+                                <p><strong>Key Considerations:</strong> Structured logging formats (JSON), log levels, sampling strategies, retention, and indexing</p>
+                            </div>
+                            
+                            <div>
+                                <strong>Tracing Systems</strong>
+                                <ul class="feature-list">
+                                    <li><strong>Jaeger:</strong> Open-source, distributed tracing system for microservices with OpenTracing support</li>
+                                    <li><strong>Zipkin:</strong> Distributed tracing system that helps gather timing data for troubleshooting latency problems</li>
+                                    <li><strong>OpenTelemetry:</strong> Vendor-neutral framework for collecting traces, metrics, and logs (CNCF project)</li>
+                                    <li><strong>AWS X-Ray:</strong> Tracing system for applications running on AWS with request visualization and filtering</li>
+                                </ul>
+                                <p><strong>Key Considerations:</strong> Sampling rates, context propagation, instrumentation methods, and visualization</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Implementation Best Practices</strong>
+                                <ul class="feature-list">
+                                    <li><strong>USE Method:</strong> Monitor Utilization, Saturation, and Errors for all resources</li>
+                                    <li><strong>RED Method:</strong> Track Rate, Errors, and Duration for all services</li>
+                                    <li><strong>SLIs/SLOs:</strong> Define Service Level Indicators and Objectives for monitoring service health</li>
+                                    <li><strong>Contextual Correlation:</strong> Ensure metrics, logs, and traces can be correlated via shared identifiers</li>
+                                    <li><strong>Cost Management:</strong> Implement sampling, filtering, and retention policies to control data volume</li>
+                                    <li><strong>Alerting Hygiene:</strong> Design alerts that minimize noise and clearly indicate actionable issues</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="ds-description"><strong>Architectural Considerations:</strong> Effective observability requires a holistic approach integrated throughout the system design process, not added as an afterthought. In modern distributed systems, the challenges of troubleshooting across service boundaries make comprehensive observability essential. While many organizations start with metrics for their simplicity and low overhead, the progressive addition of structured logging and tracing capabilities becomes necessary as system complexity increases. The trend toward unified observability platforms that correlate all three pillars helps teams quickly identify and resolve issues in complex distributed environments.</p>
+                    </div>
                 </div>
             </section>
         </div>
