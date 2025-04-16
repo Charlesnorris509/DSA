@@ -1085,7 +1085,7 @@
                     
                     <div class="data-structure-card">
                         <div class="ds-title">Splay Trees</div>
-                        <p class="ds-description">A self-adjusting binary search tree that automatically moves frequently accessed elements closer to the root to improve future access times.</p>
+                        <div class="ds-description">A self-adjusting binary search tree that automatically moves frequently accessed elements closer to the root to improve future access times.</div>
                         
                         <div class="feature-group">
                             <div>
@@ -2377,6 +2377,136 @@ console.log("Recursive BFS:", recursiveBFS(graph, 'A'));
                         </div>
                         
                         <p class="ds-description"><strong>Architectural Considerations:</strong> Effective observability requires a holistic approach integrated throughout the system design process, not added as an afterthought. In modern distributed systems, the challenges of troubleshooting across service boundaries make comprehensive observability essential. While many organizations start with metrics for their simplicity and low overhead, the progressive addition of structured logging and tracing capabilities becomes necessary as system complexity increases. The trend toward unified observability platforms that correlate all three pillars helps teams quickly identify and resolve issues in complex distributed environments.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="methodology">
+                <h2>Methodology</h2>
+                <div class="highlight">
+                    <p>This section delves into the methodologies employed in software engineering, particularly in the realms of data structure selection, algorithm design, and system architecture. Adopting a systematic approach is crucial for tackling complex software challenges and ensuring the delivery of high-quality software solutions.</p>
+                    
+                    <h3>Software Development Life Cycle (SDLC)</h3>
+                    <p>The Software Development Life Cycle (SDLC) is a framework that outlines the stages of software development from initial feasibility analysis to maintenance of the completed application. Understanding the SDLC is vital for effective project management and successful software delivery.</p>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Phases of SDLC</div>
+                        <div class="feature-group">
+                            <div>
+                                <strong>1. Planning:</strong> Define the scope, objectives, and feasibility of the project. Identify resources and create a project plan.
+                            </div>
+                            <div>
+                                <strong>2. Requirements Gathering and Analysis:</strong> Collect and analyze user requirements to ensure a clear understanding of desired software functionalities.
+                            </div>
+                            <div>
+                                <strong>3. Design:</strong> Architect the software solution, defining system architecture, data structures, interfaces, and algorithms.
+                            </div>
+                            <div>
+                                <strong>4. Implementation:</strong> Write and compile the code for the software components, followed by unit testing to ensure individual components function correctly.
+                            </div>
+                            <div>
+                                <strong>5. Integration and Testing:</strong> Integrate all components into a complete system and perform thorough testing to identify and fix defects.
+                            </div>
+                            <div>
+                                <strong>6. Deployment:</strong> Deploy the software to a production environment, making it available for users.
+                            </div>
+                            <div>
+                                <strong>7. Maintenance:</strong> Provide ongoing support and maintenance, addressing any issues that arise and implementing enhancements as needed.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Agnostic Approach to Methodologies</h3>
+                    <p>In the ever-evolving field of software engineering, remaining adaptable and open to various methodologies is crucial. Different projects may benefit from different approaches, and being methodology-agnostic allows engineers to select and tailor the best practices to fit the specific needs of each project.</p>
+                    
+                    <p>Here are some commonly used software development methodologies:</p>
+                    <div class="feature-group">
+                        <div>
+                            <strong>Agile:</strong> An iterative and incremental approach that emphasizes flexibility and customer satisfaction. Agile methodologies, such as Scrum and Kanban, promote adaptive planning, evolutionary development, and delivery, and encourage rapid and flexible responses to change.
+                        </div>
+                        <div>
+                            <strong>Waterfall:</strong> A linear and sequential approach where each phase must be completed before the next one begins. While less common in modern software development, it may still be used in projects with well-defined requirements and scope.
+                        </div>
+                        <div>
+                            <strong>DevOps:</strong> A methodology that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery with high software quality. DevOps emphasizes collaboration, automation, and monitoring.
+                        </div>
+                        <div>
+                            <strong>Lean:</strong> Focuses on delivering value to the customer while minimizing waste and reducing unnecessary costs and processes. Lean principles can be applied to software development to improve efficiency and effectiveness.
+                        </div>
+                    </div>
+                    
+                    <p>Each of these methodologies has its strengths and is suitable for different types of projects. The choice of methodology can depend on various factors, including project requirements, team size, and organizational culture. In practice, many teams adopt a hybrid approach, combining elements from different methodologies to create a tailored process that fits their specific needs.</p>
+                </div>
+            </section>
+
+            <section id="system-design-exercises">
+                <h3>System Design Exercises</h3>
+                <div class="highlight">
+                    <p>Below are practical system design exercises I've completed, demonstrating the application of these principles in real-world scenarios.</p>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">URL Shortening Service Design (TinyURL)</div>
+                        <p class="ds-description">A comprehensive solution for designing a scalable URL shortening service similar to TinyURL, addressing key system design aspects including data storage, handling high traffic volumes, and efficient redirection mechanisms.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Key Design Considerations:</strong>
+                                <ul class="feature-list">
+                                    <li>Hash function selection for URL encoding</li>
+                                    <li>Database schema optimization for high-volume reads</li>
+                                    <li>Caching strategy to minimize database load</li>
+                                    <li>Scalability approach for handling millions of URL shortening requests</li>
+                                    <li>Handling edge cases like duplicate URLs and collision management</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Components:</strong>
+                                <ul class="feature-list">
+                                    <li>URL shortening algorithm</li>
+                                    <li>Redirection service architecture</li>
+                                    <li>Analytics and monitoring system</li>
+                                    <li>Data storage layer design</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="action-links">
+                            <a href="https://codemia.io/system-design/designing-a-simple-url-shortening-service-a-tinyURL-approach/solutions/sutlxn/My-Solution-for-Designing-a-Simple-URL-Shortening-Service-A-TinyURL-Approach-with-Score-810" target="_blank" class="view-solution-btn">View Solution (Score: 8/10)</a>
+                        </div>
+                    </div>
+                    
+                    <div class="data-structure-card">
+                        <div class="ds-title">Twitter System Design</div>
+                        <p class="ds-description">A detailed architectural design for a Twitter-like social media platform, focusing on scalability, real-time updates, and efficient data storage for millions of users and tweets.</p>
+                        
+                        <div class="feature-group">
+                            <div>
+                                <strong>Key Design Considerations:</strong>
+                                <ul class="feature-list">
+                                    <li>Timeline generation and caching strategies</li>
+                                    <li>Fan-out mechanisms for tweet distribution</li>
+                                    <li>Handling high read-to-write ratio efficiently</li>
+                                    <li>Real-time notification system architecture</li>
+                                    <li>Data partitioning for large-scale user base</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong>Components:</strong>
+                                <ul class="feature-list">
+                                    <li>User service and authentication system</li>
+                                    <li>Tweet storage and retrieval service</li>
+                                    <li>Timeline generation and delivery system</li>
+                                    <li>Search functionality architecture</li>
+                                    <li>Media handling and CDN integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="action-links">
+                            <a href="https://codemia.io/system-design/design-twitter/solutions/sutm6q/My-Solution-for-Design-Twitter-with-Score-710" target="_blank" class="view-solution-btn">View Solution (Score: 7/10)</a>
+                        </div>
                     </div>
                 </div>
             </section>
